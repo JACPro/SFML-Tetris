@@ -13,7 +13,7 @@ const float DEFAULT_DELAY = 0.3f;
 
 int field[GRID_ROWS][GRID_COLS] = { 0 };
 
-sf::Vector2i a[4], b[4];
+sf::Vector2i currentTetromino[4], tempTetromino[4];
 
 int tetrominos[7][4] = {
     1, 3, 5, 7, // I
@@ -27,10 +27,10 @@ int tetrominos[7][4] = {
 
 bool check() {
     for (int i = 0; i < 4; i++) {
-        if (a[i].x < 0 || a[i].x >= GRID_COLS || a[i].y >= GRID_ROWS) {
+        if (currentTetromino[i].x < 0 || currentTetromino[i].x >= GRID_COLS || currentTetromino[i].y >= GRID_ROWS) {
             return 0;
         }
-        else if (field[a[i].y][a[i].x]) {
+        else if (field[currentTetromino[i].y][currentTetromino[i].x]) {
             return 0;
         }
     }
@@ -58,6 +58,12 @@ int main() {
     float delay = DEFAULT_DELAY;
 
     sf::Clock clock;
+
+    int n = rand() % 7;
+    for (int i = 0; i < 4; i++) {
+        currentTetromino[i].x = tetrominos[n][i] % 2;
+        currentTetromino[i].y = tetrominos[n][i] / 2;
+    }
 
     while (window.isOpen()) {
         float deltaTime = clock.restart().asSeconds();
@@ -87,29 +93,29 @@ int main() {
 
         // Move
         for (int i = 0; i < 4; i++) {
-            b[i] = a[i];
-            a[i].x += dx;
+            tempTetromino[i] = currentTetromino[i];
+            currentTetromino[i].x += dx;
         }
 
         if (!check()) {
             for (int i = 0; i < 4; i++) {
-                a[i] = b[i];
+                currentTetromino[i] = tempTetromino[i];
             }
         }
 
         // Rotate
         if (rotate) {
-            sf::Vector2i point = a[1];
+            sf::Vector2i point = currentTetromino[1];
             for (int i = 0; i < 4; i++) {
-                int x = a[i].y - point.y;
-                int y = a[i].x - point.x;
-                a[i].x = point.x - x;
-                a[i].y = point.y + y;
+                int x = currentTetromino[i].y - point.y;
+                int y = currentTetromino[i].x - point.x;
+                currentTetromino[i].x = point.x - x;
+                currentTetromino[i].y = point.y + y;
             }
 
             if (!check()) {
                 for (int i = 0; i < 4; i++) {
-                    a[i] = b[i];
+                    currentTetromino[i] = tempTetromino[i];
                 }
             }
         }
@@ -117,20 +123,21 @@ int main() {
         // Tick
         if (timer > delay) {
             for (int i = 0; i < 4; i++) {
-                b[i] = a[i];
-                a[i].y += 1;
+                tempTetromino[i] = currentTetromino[i];
+                currentTetromino[i].y += 1;
             }
 
             if (!check()) {
                 for (int i = 0; i < 4; i++) {
-                    field[b[i].y][b[i].x] = colourNum;
+                    field[tempTetromino[i].y][tempTetromino[i].x] = colourNum;
                 }
 
                 colourNum = 1 + rand() % 7;
                 int n = rand() % 7;
+                // Tetromino placed - fetch new 
                 for (int i = 0; i < 4; i++) {
-                    a[i].x = tetrominos[n][i] % 2;
-                    a[i].y = tetrominos[n][i] / 2;
+                    currentTetromino[i].x = tetrominos[n][i] % 2;
+                    currentTetromino[i].y = tetrominos[n][i] / 2;
                 }
             }
             timer = 0;
@@ -173,7 +180,7 @@ int main() {
 
         for (int i = 0; i < 4; i++) {
             tileSprite.setTextureRect(sf::IntRect(colourNum * TILE_WIDTH, 0, TILE_WIDTH, TILE_WIDTH));
-            tileSprite.setPosition(a[i].x * TILE_WIDTH, a[i].y * TILE_WIDTH);
+            tileSprite.setPosition(currentTetromino[i].x * TILE_WIDTH, currentTetromino[i].y * TILE_WIDTH);
             tileSprite.move(28, 31);
             window.draw(tileSprite);
         }
