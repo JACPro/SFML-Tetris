@@ -60,6 +60,7 @@ int main() {
     sf::Clock clock;
 
     int n = rand() % 7;
+    colourNum = 1 + n;
     for (int i = 0; i < 4; i++) {
         currentTetromino[i].x = tetrominos[n][i] % 2;
         currentTetromino[i].y = tetrominos[n][i] / 2;
@@ -132,8 +133,8 @@ int main() {
                     field[tempTetromino[i].y][tempTetromino[i].x] = colourNum;
                 }
 
-                colourNum = 1 + rand() % 7;
                 int n = rand() % 7;
+                colourNum = 1 + n;
                 // Tetromino placed - fetch new 
                 for (int i = 0; i < 4; i++) {
                     currentTetromino[i].x = tetrominos[n][i] % 2;
