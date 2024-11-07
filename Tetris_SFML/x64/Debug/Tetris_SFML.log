@@ -1,7 +1,7 @@
 ﻿  main.cpp
-C:\Users\jcunningham\Documents\Personal\CPP\Tetris_SFML\main.cpp(45,12): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
-C:\Users\jcunningham\Documents\Personal\CPP\Tetris_SFML\main.cpp(175,47): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-C:\Users\jcunningham\Documents\Personal\CPP\Tetris_SFML\main.cpp(175,31): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-C:\Users\jcunningham\Documents\Personal\CPP\Tetris_SFML\main.cpp(184,85): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-C:\Users\jcunningham\Documents\Personal\CPP\Tetris_SFML\main.cpp(184,49): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\jcunningham\Documents\Personal\CPP\Tetris_SFML\main.cpp(55,12): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
+C:\Users\jcunningham\Documents\Personal\CPP\Tetris_SFML\main.cpp(228,47): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\jcunningham\Documents\Personal\CPP\Tetris_SFML\main.cpp(228,31): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\jcunningham\Documents\Personal\CPP\Tetris_SFML\main.cpp(278,85): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\jcunningham\Documents\Personal\CPP\Tetris_SFML\main.cpp(278,49): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
   Tetris_SFML.vcxproj -> C:\Users\jcunningham\Documents\Personal\CPP\Tetris_SFML\x64\Debug\Tetris_SFML.exe
