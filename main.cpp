@@ -14,7 +14,7 @@ const int TILE_WIDTH = 18; // the width (pixels) of a single tile
 
 const float DEFAULT_DELAY = 0.3f;
 
-int field[GRID_ROWS][GRID_COLS] = { 0 };
+int field[GRID_ROWS][GRID_COLS];
 
 sf::Vector2i currentTetromino[4], tempTetromino[4], nextTetromino[4];
 
@@ -43,7 +43,7 @@ bool check() {
 		if (currentTetromino[i].x < 0 || currentTetromino[i].x >= GRID_COLS || currentTetromino[i].y >= GRID_ROWS) {
 			return 0;
 		}
-		else if (field[currentTetromino[i].y][currentTetromino[i].x]) {
+		else if (field[currentTetromino[i].y][currentTetromino[i].x] != -1) {
 			return 0;
 		}
 	}
@@ -68,10 +68,17 @@ int main() {
 
 	sf::Sprite tileSprite(tiles), backgroundSprite(background), frameSprite(frame);
 
+	// Initialize field 2D array
+	for (int i = 0; i < GRID_ROWS; i++) {
+		for (int j = 0; j < GRID_COLS; j++) {
+			field[i][j] = -1;
+		}
+	}
+
 	// Movement and gameplay
 	int dx = 0;
 	bool rotate = 0;
-	int colourNum = 1, nextColourNum = 1;
+	int colourNum = 0, nextColourNum = 0;
 
 	float timer = 0.0f;
 	float delay = DEFAULT_DELAY;
@@ -80,7 +87,7 @@ int main() {
 
 	// Generate random current tetromino
 	int n = rand() % 7;
-	colourNum = 1 + n;
+	colourNum = n;
 	for (int i = 0; i < 4; i++) {
 		currentTetromino[i].x = tetrominos[n][i] % 2;
 		currentTetromino[i].y = tetrominos[n][i] / 2;
@@ -88,7 +95,7 @@ int main() {
 
 	// Generate random next tetromino
 	n = rand() % 7;
-	nextColourNum = 1 + n;
+	nextColourNum = n;
 	for (int i = 0; i < 4; i++) {
 		nextTetromino[i].x = tetrominos[n][i] % 2;
 		nextTetromino[i].y = tetrominos[n][i] / 2;
@@ -186,7 +193,7 @@ int main() {
 				// Tetromino placed - fetch new 
 				int n = rand() % 7;
 				colourNum = nextColourNum;
-				nextColourNum = 1 + n;
+				nextColourNum = n;
 				for (int i = 0; i < 4; i++) {
 					currentTetromino[i].x = nextTetromino[i].x;
 					currentTetromino[i].y = nextTetromino[i].y;
@@ -202,7 +209,7 @@ int main() {
 		for (int i = GRID_ROWS - 1; i > 0; i--) {
 			int count = 0;
 			for (int j = 0; j < GRID_COLS; j++) {
-				if (field[i][j]) {
+				if (field[i][j] != -1) {
 					count++;
 				}
 				field[k][j] = field[i][j];
@@ -223,7 +230,7 @@ int main() {
 		// Grid
 		for (int i = 0; i < GRID_ROWS; i++) {
 			for (int j = 0; j < GRID_COLS; j++) {
-				if (field[i][j] != 0) {
+				if (field[i][j] != -1) {
 					tileSprite.setTextureRect(sf::IntRect(field[i][j] * TILE_WIDTH, 0, TILE_WIDTH, TILE_WIDTH));
 					tileSprite.setPosition(j * TILE_WIDTH, i * TILE_WIDTH);
 					tileSprite.move(28, 31);
@@ -280,7 +287,7 @@ int main() {
 			window.draw(tileSprite);
 		}
 
-		//window.draw(frameSprite);
+		window.draw(frameSprite);
 		window.display();
 	}
 
