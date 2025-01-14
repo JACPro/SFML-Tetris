@@ -180,6 +180,10 @@ int main() {
 					nextTetromino[i].x = tetrominos[n][i] % 2;
 					nextTetromino[i].y = tetrominos[n][i] / 2;
 				}
+
+				if (!check()) {
+					window.close();
+				}
 			}
 			timer = 0;
 		}
