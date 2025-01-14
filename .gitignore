@@ -275,3 +275,8 @@ examples/*/*.xml
 *.suo
 *.csproj.user
 *.VC.db
+
+
+# custom additions JACPro
+
+*.ipch
