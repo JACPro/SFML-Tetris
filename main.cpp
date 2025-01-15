@@ -1,8 +1,10 @@
 #include <SFML/Graphics.hpp>
+
 #include <time.h>
 #include <unordered_map>
 
 #include "KeyHandler.hpp"
+#include "ResourceManager.hpp"
 
 const int GRID_ROWS = 20;
 const int GRID_COLS = 10;
@@ -52,20 +54,17 @@ int main() {
 	sf::RenderWindow window(sf::VideoMode(SCREEN_WIDTH, SCREEN_HEIGHT), "SFML TETRIS");
 
 	// Load Resources
-	sf::Texture tiles, background, grid, frame, nextTileFrame;
-	tiles.loadFromFile("Resources/Textures/Tiles.png");
-	background.loadFromFile("Resources/Textures/Background.png");
-	background.setRepeated(true);
-	grid.loadFromFile("Resources/Textures/Grid.png");
-	frame.loadFromFile("Resources/Textures/Frame.png");
-	nextTileFrame.loadFromFile("Resources/Textures/NextTileFrame.png");
-	sf::Font font;
-	if (!font.loadFromFile("Resources/Fonts/Arial.ttf")) {
+	ResourceManager mResourceManager;
+	if (!mResourceManager.Load()) {
 		return 0;
 	}
 
-	sf::Sprite tileSprite(tiles), backgroundSprite(background), gridSprite(grid), nextTileGridSprite(grid), 
-		frameSprite(frame), nextTileFrameSprite(nextTileFrame);
+	sf::Sprite tileSprite(mResourceManager.GetTextures().tiles), 
+		backgroundSprite(mResourceManager.GetTextures().background), 
+		gridSprite(mResourceManager.GetTextures().grid), 
+		nextTileGridSprite(mResourceManager.GetTextures().grid),
+		frameSprite(mResourceManager.GetTextures().frame), 
+		nextTileFrameSprite(mResourceManager.GetTextures().nextTileFrame);
 
 	backgroundSprite.setTextureRect({0, 0, 600, 800});
 	gridSprite.setPosition(50, 100);
