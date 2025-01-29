@@ -1,6 +1,2 @@
-﻿  World.cpp
-C:\Users\jcunningham\Documents\Personal\CPP\Tetris_SFML\World.cpp(169,8): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-C:\Users\jcunningham\Documents\Personal\CPP\Tetris_SFML\World.cpp(168,8): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-C:\Users\jcunningham\Documents\Personal\CPP\Tetris_SFML\World.cpp(227,26): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-C:\Users\jcunningham\Documents\Personal\CPP\Tetris_SFML\World.cpp(226,26): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+﻿  ScoreManager.cpp
   Tetris_SFML.vcxproj -> C:\Users\jcunningham\Documents\Personal\CPP\Tetris_SFML\x64\Debug\Tetris_SFML.exe

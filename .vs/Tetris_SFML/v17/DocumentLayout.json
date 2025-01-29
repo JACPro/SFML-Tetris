@@ -3,24 +3,52 @@
   "WorkspaceRootPath": "C:\\Users\\jcunningham\\Documents\\Personal\\CPP\\Tetris_SFML\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{24453FD4-26BB-41F4-8966-EF25E58312C4}|Tetris_SFML.vcxproj|C:\\Users\\jcunningham\\Documents\\Personal\\CPP\\Tetris_SFML\\ScoreManager.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{24453FD4-26BB-41F4-8966-EF25E58312C4}|Tetris_SFML.vcxproj|solutionrelative:ScoreManager.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{24453FD4-26BB-41F4-8966-EF25E58312C4}|Tetris_SFML.vcxproj|C:\\Users\\jcunningham\\Documents\\Personal\\CPP\\Tetris_SFML\\CONSTANTS_Gameplay.hpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{24453FD4-26BB-41F4-8966-EF25E58312C4}|Tetris_SFML.vcxproj|solutionrelative:CONSTANTS_Gameplay.hpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{24453FD4-26BB-41F4-8966-EF25E58312C4}|Tetris_SFML.vcxproj|C:\\Users\\jcunningham\\Documents\\Personal\\CPP\\Tetris_SFML\\World.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{24453FD4-26BB-41F4-8966-EF25E58312C4}|Tetris_SFML.vcxproj|solutionrelative:World.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{24453FD4-26BB-41F4-8966-EF25E58312C4}|Tetris_SFML.vcxproj|C:\\Users\\jcunningham\\Documents\\Personal\\CPP\\Tetris_SFML\\ScoreManager.hpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{24453FD4-26BB-41F4-8966-EF25E58312C4}|Tetris_SFML.vcxproj|solutionrelative:ScoreManager.hpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{24453FD4-26BB-41F4-8966-EF25E58312C4}|Tetris_SFML.vcxproj|C:\\Users\\jcunningham\\Documents\\Personal\\CPP\\Tetris_SFML\\Observable.hpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{24453FD4-26BB-41F4-8966-EF25E58312C4}|Tetris_SFML.vcxproj|solutionrelative:Observable.hpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{24453FD4-26BB-41F4-8966-EF25E58312C4}|Tetris_SFML.vcxproj|C:\\Users\\jcunningham\\Documents\\Personal\\CPP\\Tetris_SFML\\World.hpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{24453FD4-26BB-41F4-8966-EF25E58312C4}|Tetris_SFML.vcxproj|solutionrelative:World.hpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{24453FD4-26BB-41F4-8966-EF25E58312C4}|Tetris_SFML.vcxproj|C:\\Users\\jcunningham\\Documents\\Personal\\CPP\\Tetris_SFML\\Window.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{24453FD4-26BB-41F4-8966-EF25E58312C4}|Tetris_SFML.vcxproj|solutionrelative:Window.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+      "AbsoluteMoniker": "D:0:0:{24453FD4-26BB-41F4-8966-EF25E58312C4}|Tetris_SFML.vcxproj|C:\\Users\\jcunningham\\Documents\\Personal\\CPP\\Tetris_SFML\\Observer.hpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{24453FD4-26BB-41F4-8966-EF25E58312C4}|Tetris_SFML.vcxproj|solutionrelative:Observer.hpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{24453FD4-26BB-41F4-8966-EF25E58312C4}|Tetris_SFML.vcxproj|C:\\Users\\jcunningham\\Documents\\Personal\\CPP\\Tetris_SFML\\ResourceManager.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{24453FD4-26BB-41F4-8966-EF25E58312C4}|Tetris_SFML.vcxproj|solutionrelative:ResourceManager.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{24453FD4-26BB-41F4-8966-EF25E58312C4}|Tetris_SFML.vcxproj|C:\\Users\\jcunningham\\Documents\\Personal\\CPP\\Tetris_SFML\\main.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{24453FD4-26BB-41F4-8966-EF25E58312C4}|Tetris_SFML.vcxproj|solutionrelative:main.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{24453FD4-26BB-41F4-8966-EF25E58312C4}|Tetris_SFML.vcxproj|C:\\Users\\jcunningham\\Documents\\Personal\\CPP\\Tetris_SFML\\Entity.hpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{24453FD4-26BB-41F4-8966-EF25E58312C4}|Tetris_SFML.vcxproj|solutionrelative:Entity.hpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{24453FD4-26BB-41F4-8966-EF25E58312C4}|Tetris_SFML.vcxproj|C:\\Users\\jcunningham\\Documents\\Personal\\CPP\\Tetris_SFML\\Entity.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{24453FD4-26BB-41F4-8966-EF25E58312C4}|Tetris_SFML.vcxproj|solutionrelative:Entity.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{24453FD4-26BB-41F4-8966-EF25E58312C4}|Tetris_SFML.vcxproj|C:\\Users\\jcunningham\\Documents\\Personal\\CPP\\Tetris_SFML\\main.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{24453FD4-26BB-41F4-8966-EF25E58312C4}|Tetris_SFML.vcxproj|solutionrelative:main.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+      "AbsoluteMoniker": "D:0:0:{24453FD4-26BB-41F4-8966-EF25E58312C4}|Tetris_SFML.vcxproj|C:\\Users\\jcunningham\\Documents\\Personal\\CPP\\Tetris_SFML\\Window.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{24453FD4-26BB-41F4-8966-EF25E58312C4}|Tetris_SFML.vcxproj|solutionrelative:Window.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{24453FD4-26BB-41F4-8966-EF25E58312C4}|Tetris_SFML.vcxproj|C:\\Users\\jcunningham\\Documents\\Personal\\CPP\\Tetris_SFML\\Window.hpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
@@ -29,18 +57,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{24453FD4-26BB-41F4-8966-EF25E58312C4}|Tetris_SFML.vcxproj|C:\\Users\\jcunningham\\Documents\\Personal\\CPP\\Tetris_SFML\\ResourceManager.hpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{24453FD4-26BB-41F4-8966-EF25E58312C4}|Tetris_SFML.vcxproj|solutionrelative:ResourceManager.hpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{24453FD4-26BB-41F4-8966-EF25E58312C4}|Tetris_SFML.vcxproj|C:\\Users\\jcunningham\\Documents\\Personal\\CPP\\Tetris_SFML\\Entity.hpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{24453FD4-26BB-41F4-8966-EF25E58312C4}|Tetris_SFML.vcxproj|solutionrelative:Entity.hpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{24453FD4-26BB-41F4-8966-EF25E58312C4}|Tetris_SFML.vcxproj|C:\\Users\\jcunningham\\Documents\\Personal\\CPP\\Tetris_SFML\\CONSTANTS_ScreenLayout.hpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{24453FD4-26BB-41F4-8966-EF25E58312C4}|Tetris_SFML.vcxproj|solutionrelative:CONSTANTS_ScreenLayout.hpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{24453FD4-26BB-41F4-8966-EF25E58312C4}|Tetris_SFML.vcxproj|C:\\Users\\jcunningham\\Documents\\Personal\\CPP\\Tetris_SFML\\ResourceManager.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{24453FD4-26BB-41F4-8966-EF25E58312C4}|Tetris_SFML.vcxproj|solutionrelative:ResourceManager.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     }
   ],
   "DocumentGroupContainers": [
@@ -50,49 +66,76 @@
       "DocumentGroups": [
         {
           "DockedWidth": 251,
-          "SelectedChildIndex": 7,
+          "SelectedChildIndex": 1,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 9,
-              "Title": "ResourceManager.cpp",
-              "DocumentMoniker": "C:\\Users\\jcunningham\\Documents\\Personal\\CPP\\Tetris_SFML\\ResourceManager.cpp",
-              "RelativeDocumentMoniker": "ResourceManager.cpp",
-              "ToolTip": "C:\\Users\\jcunningham\\Documents\\Personal\\CPP\\Tetris_SFML\\ResourceManager.cpp",
-              "RelativeToolTip": "ResourceManager.cpp",
-              "ViewState": "AQIAABgAAAAAAAAAAAAAABIAAABGAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2025-01-16T09:23:42.615Z"
+              "DocumentIndex": 1,
+              "Title": "CONSTANTS_Gameplay.hpp",
+              "DocumentMoniker": "C:\\Users\\jcunningham\\Documents\\Personal\\CPP\\Tetris_SFML\\CONSTANTS_Gameplay.hpp",
+              "RelativeDocumentMoniker": "CONSTANTS_Gameplay.hpp",
+              "ToolTip": "C:\\Users\\jcunningham\\Documents\\Personal\\CPP\\Tetris_SFML\\CONSTANTS_Gameplay.hpp",
+              "RelativeToolTip": "CONSTANTS_Gameplay.hpp",
+              "ViewState": "AQIAAAkAAAAAAAAAAAAAABUAAAADAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2025-01-29T14:15:53.667Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "Entity.cpp",
-              "DocumentMoniker": "C:\\Users\\jcunningham\\Documents\\Personal\\CPP\\Tetris_SFML\\Entity.cpp",
-              "RelativeDocumentMoniker": "Entity.cpp",
-              "ToolTip": "C:\\Users\\jcunningham\\Documents\\Personal\\CPP\\Tetris_SFML\\Entity.cpp",
-              "RelativeToolTip": "Entity.cpp",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAoAAAAAAAAA",
+              "DocumentIndex": 0,
+              "Title": "ScoreManager.cpp",
+              "DocumentMoniker": "C:\\Users\\jcunningham\\Documents\\Personal\\CPP\\Tetris_SFML\\ScoreManager.cpp",
+              "RelativeDocumentMoniker": "ScoreManager.cpp",
+              "ToolTip": "C:\\Users\\jcunningham\\Documents\\Personal\\CPP\\Tetris_SFML\\ScoreManager.cpp*",
+              "RelativeToolTip": "ScoreManager.cpp*",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA4AAAAnAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2025-01-15T17:35:46.278Z",
+              "WhenOpened": "2025-01-29T12:54:19.829Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "Observable.hpp",
+              "DocumentMoniker": "C:\\Users\\jcunningham\\Documents\\Personal\\CPP\\Tetris_SFML\\Observable.hpp",
+              "RelativeDocumentMoniker": "Observable.hpp",
+              "ToolTip": "C:\\Users\\jcunningham\\Documents\\Personal\\CPP\\Tetris_SFML\\Observable.hpp",
+              "RelativeToolTip": "Observable.hpp",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABIAAAAYAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2025-01-29T11:24:22.102Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 6,
-              "Title": "ResourceManager.hpp",
-              "DocumentMoniker": "C:\\Users\\jcunningham\\Documents\\Personal\\CPP\\Tetris_SFML\\ResourceManager.hpp",
-              "RelativeDocumentMoniker": "ResourceManager.hpp",
-              "ToolTip": "C:\\Users\\jcunningham\\Documents\\Personal\\CPP\\Tetris_SFML\\ResourceManager.hpp",
-              "RelativeToolTip": "ResourceManager.hpp",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAcAAAACAAAA",
+              "Title": "Observer.hpp",
+              "DocumentMoniker": "C:\\Users\\jcunningham\\Documents\\Personal\\CPP\\Tetris_SFML\\Observer.hpp",
+              "RelativeDocumentMoniker": "Observer.hpp",
+              "ToolTip": "C:\\Users\\jcunningham\\Documents\\Personal\\CPP\\Tetris_SFML\\Observer.hpp",
+              "RelativeToolTip": "Observer.hpp",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAMAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2025-01-16T09:04:12.775Z",
+              "WhenOpened": "2025-01-29T11:22:11.849Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 3,
+              "Title": "ScoreManager.hpp",
+              "DocumentMoniker": "C:\\Users\\jcunningham\\Documents\\Personal\\CPP\\Tetris_SFML\\ScoreManager.hpp",
+              "RelativeDocumentMoniker": "ScoreManager.hpp",
+              "ToolTip": "C:\\Users\\jcunningham\\Documents\\Personal\\CPP\\Tetris_SFML\\ScoreManager.hpp",
+              "RelativeToolTip": "ScoreManager.hpp",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAMAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2025-01-29T11:20:28.868Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
               "Title": "Window.hpp",
               "DocumentMoniker": "C:\\Users\\jcunningham\\Documents\\Personal\\CPP\\Tetris_SFML\\Window.hpp",
               "RelativeDocumentMoniker": "Window.hpp",
@@ -100,86 +143,105 @@
               "RelativeToolTip": "Window.hpp",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2025-01-16T09:03:36.848Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-01-16T09:03:36.848Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 11,
               "Title": "Window.cpp",
               "DocumentMoniker": "C:\\Users\\jcunningham\\Documents\\Personal\\CPP\\Tetris_SFML\\Window.cpp",
               "RelativeDocumentMoniker": "Window.cpp",
               "ToolTip": "C:\\Users\\jcunningham\\Documents\\Personal\\CPP\\Tetris_SFML\\Window.cpp",
               "RelativeToolTip": "Window.cpp",
-              "ViewState": "AQIAAAgAAAAAAAAAAAAgwBIAAAAzAAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAEAAAAACAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2025-01-16T09:03:06.805Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-01-16T09:03:06.805Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 9,
               "Title": "Entity.hpp",
               "DocumentMoniker": "C:\\Users\\jcunningham\\Documents\\Personal\\CPP\\Tetris_SFML\\Entity.hpp",
               "RelativeDocumentMoniker": "Entity.hpp",
               "ToolTip": "C:\\Users\\jcunningham\\Documents\\Personal\\CPP\\Tetris_SFML\\Entity.hpp",
               "RelativeToolTip": "Entity.hpp",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAsAAAAMAAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAQAAAAMAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2025-01-15T17:25:06.506Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-01-15T17:25:06.506Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "main.cpp",
-              "DocumentMoniker": "C:\\Users\\jcunningham\\Documents\\Personal\\CPP\\Tetris_SFML\\main.cpp",
-              "RelativeDocumentMoniker": "main.cpp",
-              "ToolTip": "C:\\Users\\jcunningham\\Documents\\Personal\\CPP\\Tetris_SFML\\main.cpp",
-              "RelativeToolTip": "main.cpp",
-              "ViewState": "AQIAAAcAAAAAAAAAAAAgwBQAAAASAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2025-01-15T17:22:23.813Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "World.cpp",
-              "DocumentMoniker": "C:\\Users\\jcunningham\\Documents\\Personal\\CPP\\Tetris_SFML\\World.cpp",
-              "RelativeDocumentMoniker": "World.cpp",
-              "ToolTip": "C:\\Users\\jcunningham\\Documents\\Personal\\CPP\\Tetris_SFML\\World.cpp",
-              "RelativeToolTip": "World.cpp",
-              "ViewState": "AQIAAPIAAAAAAAAAAAAgwP4AAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2025-01-15T17:21:50.482Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 5,
               "Title": "World.hpp",
               "DocumentMoniker": "C:\\Users\\jcunningham\\Documents\\Personal\\CPP\\Tetris_SFML\\World.hpp",
               "RelativeDocumentMoniker": "World.hpp",
               "ToolTip": "C:\\Users\\jcunningham\\Documents\\Personal\\CPP\\Tetris_SFML\\World.hpp",
               "RelativeToolTip": "World.hpp",
-              "ViewState": "AQIAACoAAAAAAAAAAAAgwDEAAAAVAAAA",
+              "ViewState": "AQIAACgAAAAAAAAAAAAkwDUAAAANAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
               "WhenOpened": "2025-01-15T17:21:33.068Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
-              "Title": "CONSTANTS_ScreenLayout.hpp",
-              "DocumentMoniker": "C:\\Users\\jcunningham\\Documents\\Personal\\CPP\\Tetris_SFML\\CONSTANTS_ScreenLayout.hpp",
-              "RelativeDocumentMoniker": "CONSTANTS_ScreenLayout.hpp",
-              "ToolTip": "C:\\Users\\jcunningham\\Documents\\Personal\\CPP\\Tetris_SFML\\CONSTANTS_ScreenLayout.hpp",
-              "RelativeToolTip": "CONSTANTS_ScreenLayout.hpp",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA8AAAABAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2025-01-17T12:21:17.887Z",
+              "DocumentIndex": 2,
+              "Title": "World.cpp",
+              "DocumentMoniker": "C:\\Users\\jcunningham\\Documents\\Personal\\CPP\\Tetris_SFML\\World.cpp",
+              "RelativeDocumentMoniker": "World.cpp",
+              "ToolTip": "C:\\Users\\jcunningham\\Documents\\Personal\\CPP\\Tetris_SFML\\World.cpp",
+              "RelativeToolTip": "World.cpp",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAYAAAAcAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2025-01-15T17:21:50.482Z",
               "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "ResourceManager.hpp",
+              "DocumentMoniker": "C:\\Users\\jcunningham\\Documents\\Personal\\CPP\\Tetris_SFML\\ResourceManager.hpp",
+              "RelativeDocumentMoniker": "ResourceManager.hpp",
+              "ToolTip": "C:\\Users\\jcunningham\\Documents\\Personal\\CPP\\Tetris_SFML\\ResourceManager.hpp",
+              "RelativeToolTip": "ResourceManager.hpp",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAcAAAACAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2025-01-16T09:04:12.775Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "Entity.cpp",
+              "DocumentMoniker": "C:\\Users\\jcunningham\\Documents\\Personal\\CPP\\Tetris_SFML\\Entity.cpp",
+              "RelativeDocumentMoniker": "Entity.cpp",
+              "ToolTip": "C:\\Users\\jcunningham\\Documents\\Personal\\CPP\\Tetris_SFML\\Entity.cpp",
+              "RelativeToolTip": "Entity.cpp",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAIAAAAGAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2025-01-15T17:35:46.278Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "ResourceManager.cpp",
+              "DocumentMoniker": "C:\\Users\\jcunningham\\Documents\\Personal\\CPP\\Tetris_SFML\\ResourceManager.cpp",
+              "RelativeDocumentMoniker": "ResourceManager.cpp",
+              "ToolTip": "C:\\Users\\jcunningham\\Documents\\Personal\\CPP\\Tetris_SFML\\ResourceManager.cpp",
+              "RelativeToolTip": "ResourceManager.cpp",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABMAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2025-01-16T09:23:42.615Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "main.cpp",
+              "DocumentMoniker": "C:\\Users\\jcunningham\\Documents\\Personal\\CPP\\Tetris_SFML\\main.cpp",
+              "RelativeDocumentMoniker": "main.cpp",
+              "ToolTip": "C:\\Users\\jcunningham\\Documents\\Personal\\CPP\\Tetris_SFML\\main.cpp",
+              "RelativeToolTip": "main.cpp",
+              "ViewState": "AQIAAAoAAAAAAAAAAAAgwBsAAAACAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2025-01-15T17:22:23.813Z"
             }
           ]
         }

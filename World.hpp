@@ -9,9 +9,16 @@
 #include "CONSTANTS_ScreenLayout.hpp"
 #include "CONSTANTS_Gameplay.hpp"
 
+#include "Observable.hpp"
+#include "ScoreManager.hpp"
+
 class Entity;
 
-class World {
+// TODO consider changing this inheritance from observable to a composition based structure
+// where World has object of Observable type, because:
+// 1. This would allow multiple events where we currently support only 1
+// 2. Composition > Inheritance
+class World : public Observable<int> {
 public:
 	explicit World(Window& window);
 
@@ -29,6 +36,8 @@ private:
 	Window& mWindow;
 	ResourceManager mResourceManager;
 	
+	std::vector<Entity*> mEntities;
+
 	// -- GAMEPLAY FIELDS --
 	int grid[ScreenLayout::GRID_ROWS][ScreenLayout::GRID_COLS];
 	sf::Vector2i currentTetromino[4], tempTetromino[4], nextTetromino[4];
@@ -46,6 +55,9 @@ private:
 	// Input
 	std::unordered_map<sf::Keyboard::Key, KeyHandler> keyHandlers;
 
+	ScoreManager scoreManager;
+
+
 	// -- INFRASTRUCTURE FUNCTIONS --
 	template<typename T>
 	T* SpawnEntity(const sf::Texture& texture) {
@@ -60,8 +72,6 @@ private:
 
 	void RenderEntities();
 	void DestroyAllEntities();
-
-	std::vector<Entity*> mEntities;
 
 	// -- GAMEPLAY FUNCTIONS --
 	bool Check();

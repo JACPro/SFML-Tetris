@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup Label="ProjectConfigurations">
     <ProjectConfiguration Include="Debug|Win32">
@@ -140,6 +140,7 @@
     <ClCompile Include="KeyHandler.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="ResourceManager.cpp" />
+    <ClCompile Include="ScoreManager.cpp" />
     <ClCompile Include="Window.cpp" />
     <ClCompile Include="World.cpp" />
   </ItemGroup>
@@ -147,7 +148,10 @@
     <ClInclude Include="CONSTANTS_Gameplay.hpp" />
     <ClInclude Include="Entity.hpp" />
     <ClInclude Include="KeyHandler.hpp" />
+    <ClInclude Include="Observable.hpp" />
+    <ClInclude Include="Observer.hpp" />
     <ClInclude Include="ResourceManager.hpp" />
+    <ClInclude Include="ScoreManager.hpp" />
     <ClInclude Include="Window.hpp" />
     <ClInclude Include="World.hpp" />
   </ItemGroup>

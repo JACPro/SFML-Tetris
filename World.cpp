@@ -4,6 +4,7 @@
 
 World::World(Window& window)
 	: mWindow(window) {
+	AddObserver(&scoreManager);
 }
 
 void World::SetupSprites() {
@@ -138,6 +139,7 @@ void World::Update(float deltaTime) {
 
 	// Check for lines
 	int k = ScreenLayout::GRID_ROWS - 1;
+	int clearedLines = 0;
 	for (int i = ScreenLayout::GRID_ROWS - 1; i > 0; i--) {
 		int count = 0;
 		for (int j = 0; j < ScreenLayout::GRID_COLS; j++) {
@@ -148,8 +150,14 @@ void World::Update(float deltaTime) {
 		}
 		if (count < ScreenLayout::GRID_COLS) {
 			k--;
+		} else {
+			clearedLines++;
 		}
 	}
+	if (clearedLines) {
+		NotifyObservers(clearedLines);
+	}
+
 
 	dx = 0;
 	rotate = false;
