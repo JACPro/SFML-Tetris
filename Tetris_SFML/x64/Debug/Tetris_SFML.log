@@ -1,2 +1,11 @@
-﻿  ScoreManager.cpp
+﻿  World.cpp
+C:\Users\jcunningham\Documents\Personal\CPP\Tetris_SFML\World.cpp(179,8): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\jcunningham\Documents\Personal\CPP\Tetris_SFML\World.cpp(178,8): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\jcunningham\Documents\Personal\CPP\Tetris_SFML\World.cpp(237,26): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\jcunningham\Documents\Personal\CPP\Tetris_SFML\World.cpp(236,26): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\jcunningham\Documents\Personal\CPP\Tetris_SFML\World.cpp(306,28): warning C4244: 'initializing': conversion from 'T' to 'float', possible loss of data
+C:\Users\jcunningham\Documents\Personal\CPP\Tetris_SFML\World.cpp(306,28): warning C4244:         with
+C:\Users\jcunningham\Documents\Personal\CPP\Tetris_SFML\World.cpp(306,28): warning C4244:         [
+C:\Users\jcunningham\Documents\Personal\CPP\Tetris_SFML\World.cpp(306,28): warning C4244:             T=unsigned int
+C:\Users\jcunningham\Documents\Personal\CPP\Tetris_SFML\World.cpp(306,28): warning C4244:         ]
   Tetris_SFML.vcxproj -> C:\Users\jcunningham\Documents\Personal\CPP\Tetris_SFML\x64\Debug\Tetris_SFML.exe

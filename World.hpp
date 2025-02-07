@@ -44,6 +44,7 @@ private:
 
 	Entity* TileEntity;
 	Entity* NextTileGridEntity;
+	Entity* NextTileFrameEntity;
 
 	int dx = 0;
 	bool rotate = 0;
@@ -72,6 +73,8 @@ private:
 
 	void RenderEntities();
 	void DestroyAllEntities();
+
+	void RenderScore();
 
 	// -- GAMEPLAY FUNCTIONS --
 	bool Check();

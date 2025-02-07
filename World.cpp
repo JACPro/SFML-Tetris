@@ -2,6 +2,8 @@
 
 #include "Entity.hpp"
 
+#include <sstream>
+
 World::World(Window& window)
 	: mWindow(window) {
 	AddObserver(&scoreManager);
@@ -23,8 +25,8 @@ void World::SetupSprites() {
 	Entity* FrameEntity = SpawnEntity<Entity>(mResourceManager.GetTextures().frame);
 
 	sf::Vector2f nextTileBgPos = NextTileGridEntity->GetSprite().getPosition();
-	Entity* nextTileFrameSprite = SpawnEntity<Entity>(mResourceManager.GetTextures().nextTileFrame);
-	nextTileFrameSprite->GetSprite().setPosition(nextTileBgPos.x - 28, nextTileBgPos.y - 28);
+	NextTileFrameEntity = SpawnEntity<Entity>(mResourceManager.GetTextures().nextTileFrame);
+	NextTileFrameEntity->GetSprite().setPosition(nextTileBgPos.x - 28, nextTileBgPos.y - 28);
 }
 
 bool World::Load() {
@@ -258,6 +260,7 @@ void World::Render() {
 	const sf::Vector2f& viewSize = mWindow.GetRenderWindow().getView().getSize();
 	fullScreenSprite.setOrigin(sf::Vector2f(0,0));
 
+	RenderScore();
 	mWindow.GetRenderWindow().draw(fullScreenSprite);
 }
 
@@ -295,4 +298,42 @@ bool World::Check() {
 	}
 
 	return true;
+}
+
+void World::RenderScore() {
+	// -- BACKGROUND --
+	sf::RectangleShape scoreTextBox({ 190.f, 30.f });
+	float nextTileFrameHeight = NextTileFrameEntity->GetSprite().getTexture()->getSize().y;
+	sf::Vector2f scoreTextBoxPosition = sf::Vector2f(
+		ScreenLayout::NEXT_TETROMINO_BOX_POSITION.x,
+		ScreenLayout::NEXT_TETROMINO_BOX_POSITION.y + nextTileFrameHeight + ScreenLayout::SCORE_TEXT_BOX_PADDING
+	);
+	
+	scoreTextBox.setPosition(scoreTextBoxPosition);
+	scoreTextBox.setFillColor(sf::Color::Blue);
+
+	// -- TEXT --
+	sf::Text scoreText;
+
+	// Write text
+	std::ostringstream stringBuff;
+	stringBuff << "Score: " << scoreManager.GetScore();
+	scoreText.setString(stringBuff.str());
+
+	// Formatting
+	scoreText.setFont(mResourceManager.GetFonts().font); // a font is required to make a text object
+	scoreText.setCharacterSize(24);
+	scoreText.setFillColor(sf::Color::Yellow);
+	scoreText.setStyle(sf::Text::Bold);
+
+	sf::Vector2f scoreTextPosition = sf::Vector2f(
+		scoreTextBoxPosition.x + ScreenLayout::SCORE_TEXT_PADDING,
+		scoreTextBoxPosition.y + ScreenLayout::SCORE_TEXT_PADDING
+	);
+	scoreText.setPosition(scoreTextPosition);
+
+
+	// -- RENDER --
+	mWindow.GetRenderTex().draw(scoreTextBox);
+	mWindow.GetRenderTex().draw(scoreText);
 }

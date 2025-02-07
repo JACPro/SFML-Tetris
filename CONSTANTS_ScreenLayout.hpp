@@ -13,4 +13,8 @@ namespace ScreenLayout {
 	// Next tetromino preview
 	constexpr float NEXT_TETROMINO_BOX_PADDING = 15.0f;
 	const sf::Vector2f NEXT_TETROMINO_BOX_POSITION(400.0f, 100.0f);
+
+	// Score text box
+	constexpr float SCORE_TEXT_BOX_PADDING = 15.0f; // gap from next tetromino preview above
+	constexpr float SCORE_TEXT_PADDING = 2.0f; // away from edges
 }

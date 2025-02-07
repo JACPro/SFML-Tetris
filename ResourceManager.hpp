@@ -21,6 +21,7 @@ public:
 	virtual ~ResourceManager() {}
 
 	const Textures& GetTextures() const { return mTextures; }
+	const Fonts& GetFonts() const { return mFonts; }
 
 	bool Load();
 	bool LoadTextures();
