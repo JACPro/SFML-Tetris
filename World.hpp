@@ -46,6 +46,8 @@ private:
 	Entity* NextTileGridEntity;
 	Entity* NextTileFrameEntity;
 
+	sf::RenderTexture TilesRenderTexture;
+
 	int dx = 0;
 	bool rotate = 0;
 	int colourNum = 0, nextColourNum = 0;

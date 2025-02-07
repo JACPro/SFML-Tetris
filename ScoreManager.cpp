@@ -14,7 +14,5 @@ void ScoreManager::Notify(const int& value) {
 	if (InScoringRange(value)) {
 		// TODO this score should then be multiplied by current level
 		score += Gameplay::SCORE_MULT[value-1];
-		// TODO score should be displayed on UI
-		printf("SCORE: %d\r\n", score);
 	}
 }

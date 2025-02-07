@@ -20,9 +20,8 @@ int main() {
 
 			window.Clear();
 
-			// TODO render should happen AFTER update, but update is currently handling rendering of the tetrominos
-			world.Render();
 			world.Update(deltaTime.asSeconds());
+			world.Render();
 
 			window.Display();
 		}

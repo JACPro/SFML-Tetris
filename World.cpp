@@ -7,6 +7,7 @@
 World::World(Window& window)
 	: mWindow(window) {
 	AddObserver(&scoreManager);
+	TilesRenderTexture.create(ScreenLayout::SCREEN_WIDTH, ScreenLayout::SCREEN_HEIGHT);
 }
 
 void World::SetupSprites() {
@@ -180,7 +181,8 @@ void World::Update(float deltaTime) {
 				);
 				TileEntity->GetSprite().move(50, 100);
 				// TODO ALL DRAWING SHOULD BE HANDLED IN RENDER FUNCTION
-				mWindow.GetRenderWindow().draw(TileEntity->GetSprite());
+				//mWindow.GetRenderWindow().draw(TileEntity->GetSprite());
+				TilesRenderTexture.draw(TileEntity->GetSprite());
 			}
 		}
 	}
@@ -223,7 +225,8 @@ void World::Update(float deltaTime) {
 			nextTetromino[i].y * ScreenLayout::TILE_WIDTH + yOffset
 		);
 		// TODO ALL DRAWING SHOULD BE HANDLED IN RENDER FUNCTION
-		mWindow.GetRenderWindow().draw(TileEntity->GetSprite());
+		//mWindow.GetRenderWindow().draw(TileEntity->GetSprite());
+		TilesRenderTexture.draw(TileEntity->GetSprite());
 	}
 
 	// Current Tetromino
@@ -239,13 +242,20 @@ void World::Update(float deltaTime) {
 
 		TileEntity->GetSprite().move(50, 100);
 		// TODO ALL DRAWING SHOULD BE HANDLED IN RENDER FUNCTION
-		mWindow.GetRenderWindow().draw(TileEntity->GetSprite());
+		//mWindow.GetRenderWindow().draw(TileEntity->GetSprite());
+		TilesRenderTexture.draw(TileEntity->GetSprite());
 	}
 }
 
 void World::Render() {
 	RenderEntities();
+
+
+	RenderScore();
+
 	GetRenderTex().display();
+
+
 
 	sf::Vector2f v = mWindow.GetRenderWindow().getView().getCenter();
 
@@ -260,8 +270,13 @@ void World::Render() {
 	const sf::Vector2f& viewSize = mWindow.GetRenderWindow().getView().getSize();
 	fullScreenSprite.setOrigin(sf::Vector2f(0,0));
 
-	RenderScore();
 	mWindow.GetRenderWindow().draw(fullScreenSprite);
+
+	TilesRenderTexture.display();
+	sf::Sprite TilesSprite(TilesRenderTexture.getTexture());
+	mWindow.GetRenderWindow().draw(TilesSprite);
+	TilesRenderTexture.clear(sf::Color(0,0,0,0));
+
 }
 
 void World::Shutdown() {
