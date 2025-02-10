@@ -63,6 +63,12 @@
     <ClCompile Include="ScreenFactory.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="MainMenuScreen.cpp">
+      <Filter>Source Files\Screens</Filter>
+    </ClCompile>
+    <ClCompile Include="GameOverScreen.cpp">
+      <Filter>Source Files\Screens</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="KeyHandler.hpp">
@@ -94,6 +100,15 @@
     </ClInclude>
     <ClInclude Include="ScreenFactory.hpp">
       <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="MainMenuScreen.hpp">
+      <Filter>Header Files\Screens</Filter>
+    </ClInclude>
+    <ClInclude Include="EScreens.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="GameOverScreen.hpp">
+      <Filter>Header Files\Screens</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

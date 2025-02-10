@@ -15,7 +15,10 @@ bool World::Load() {
 		return false;
 	}
 
-	mCurrentScreen = mScreenFactory.BuildScreen(Screens::Game);
+	mCurrentScreen = mScreenFactory.BuildScreen(EScreens::MainMenu);
+	
+	if (!mCurrentScreen) { return false; }
+	
 	mCurrentScreen->Load();
 
 	return true;
@@ -23,7 +26,12 @@ bool World::Load() {
 
 
 void World::Update(float deltaTime) {
-	mCurrentScreen->Update(deltaTime);
+	EScreens nextScreen = mCurrentScreen->Update(deltaTime);
+
+	if (nextScreen != EScreens::None) {
+		mCurrentScreen = mScreenFactory.BuildScreen(nextScreen);
+		mCurrentScreen->Load();
+	}
 }
 
 void World::Render() {

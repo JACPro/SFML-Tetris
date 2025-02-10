@@ -16,5 +16,6 @@ namespace ScreenLayout {
 
 	// Score text box
 	constexpr float SCORE_TEXT_BOX_PADDING = 15.0f; // gap from next tetromino preview above
-	constexpr float SCORE_TEXT_PADDING = 2.0f; // away from edges
+	constexpr float SCORE_TEXT_PADDING_X = 10.0f; // away from edges
+	constexpr float SCORE_TEXT_PADDING_Y = -5.0f; // away from edges
 }

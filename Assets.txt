@@ -1,2 +1,6 @@
 Free texture assets from:
 https://moxica.itch.io/tetrominoes
+
+
+Jersey10 font from google fonts:
+https://fonts.google.com/specimen/Jersey+10

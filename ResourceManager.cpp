@@ -33,7 +33,7 @@ bool ResourceManager::LoadFonts() {
 
 	Fonts& f = mFonts;
 
-	success &= f.font.loadFromFile("Resources/Fonts/Arial.ttf");
+	success &= f.font.loadFromFile("Resources/Fonts/Jersey10.ttf");
 
 	return success;
 }

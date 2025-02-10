@@ -1,7 +1,7 @@
 #include "Window.hpp"
 
 Window::Window(uint32_t width, uint32_t height, const sf::String& title)
-	: mWindow(sf::VideoMode(width, height), title) {
+	: mWindow(sf::VideoMode(width, height), title, sf::Style::Close) {
 	// Enable Vsync and lock FPS to 60
 	mWindow.setVerticalSyncEnabled(true);
 	mWindow.setFramerateLimit(60);

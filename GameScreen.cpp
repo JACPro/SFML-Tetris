@@ -75,9 +75,7 @@ bool GameScreen::Load() {
 }
 
 
-bool GameScreen::Update(float deltaTime) {
-	bool needChangeScreen = false;
-
+EScreens GameScreen::Update(float deltaTime) {
 	timer += deltaTime;
 
 	// Update key handlers
@@ -138,7 +136,7 @@ bool GameScreen::Update(float deltaTime) {
 			}
 
 			if (!Check()) {
-				mWindow.Close();
+				return EScreens::GameOver;
 			}
 		}
 		timer = 0;
@@ -244,23 +242,14 @@ bool GameScreen::Update(float deltaTime) {
 		TilesRenderTexture.draw(TileEntity->GetSprite());
 	}
 
-	return needChangeScreen;
+	return mNextScreen;
 }
 
 void GameScreen::Render() {
 	RenderEntities();
-
-
 	RenderScore();
 
-	mWorld.GetRenderTex().display();
-
-
-
-	sf::Vector2f v = mWindow.GetRenderWindow().getView().getCenter();
-
 	sf::Sprite fullScreenSprite(mWorld.GetRenderTex().getTexture());
-
 
 	fullScreenSprite.setScale(
 		mWindow.GetRenderWindow().getSize().x / static_cast<float>(mWorld.GetRenderTex().getSize().x),
@@ -277,6 +266,7 @@ void GameScreen::Render() {
 	mWindow.GetRenderWindow().draw(TilesSprite);
 	TilesRenderTexture.clear(sf::Color(0, 0, 0, 0));
 
+	mWorld.GetRenderTex().display();
 }
 
 void GameScreen::Shutdown() {
@@ -317,7 +307,7 @@ bool GameScreen::Check() {
 
 void GameScreen::RenderScore() {
 	// -- BACKGROUND --
-	sf::RectangleShape scoreTextBox({ 190.f, 30.f });
+	sf::RectangleShape scoreTextBox({ 190.f, 80.f });
 	float nextTileFrameHeight = NextTileFrameEntity->GetSprite().getTexture()->getSize().y;
 	sf::Vector2f scoreTextBoxPosition = sf::Vector2f(
 		ScreenLayout::NEXT_TETROMINO_BOX_POSITION.x,
@@ -325,25 +315,30 @@ void GameScreen::RenderScore() {
 	);
 
 	scoreTextBox.setPosition(scoreTextBoxPosition);
-	scoreTextBox.setFillColor(sf::Color::Blue);
+	scoreTextBox.setFillColor(sf::Color(34, 88, 130));
+	scoreTextBox.setOutlineColor(sf::Color(175, 227, 254));
+	scoreTextBox.setOutlineThickness(10.0f);
+
 
 	// -- TEXT --
 	sf::Text scoreText;
 
 	// Write text
 	std::ostringstream stringBuff;
-	stringBuff << "Score: " << scoreManager.GetScore();
+	stringBuff << "Score\n " << scoreManager.GetScore();
 	scoreText.setString(stringBuff.str());
 
 	// Formatting
 	scoreText.setFont(mWorld.GetResources().GetFonts().font); // a font is required to make a text object
-	scoreText.setCharacterSize(24);
-	scoreText.setFillColor(sf::Color::Yellow);
-	scoreText.setStyle(sf::Text::Bold);
+	scoreText.setCharacterSize(36);
+	scoreText.setFillColor(sf::Color(175, 227, 254));
+
+
+	sf::FloatRect scoreTextSize = scoreText.getLocalBounds();
 
 	sf::Vector2f scoreTextPosition = sf::Vector2f(
-		scoreTextBoxPosition.x + ScreenLayout::SCORE_TEXT_PADDING,
-		scoreTextBoxPosition.y + ScreenLayout::SCORE_TEXT_PADDING
+		scoreTextBoxPosition.x + ScreenLayout::SCORE_TEXT_PADDING_X,
+		scoreTextBoxPosition.y + ScreenLayout::SCORE_TEXT_PADDING_Y
 	);
 	scoreText.setPosition(scoreTextPosition);
 

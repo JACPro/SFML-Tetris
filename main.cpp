@@ -12,6 +12,8 @@ int main() {
 	Window window(ScreenLayout::SCREEN_WIDTH, ScreenLayout::SCREEN_HEIGHT, "SFML TETRIS");
 	World world(window);
 
+	window.GetRenderWindow().setFramerateLimit(120);
+
 	if (world.Load()) {
 		sf::Clock clock;
 

@@ -26,7 +26,7 @@ public:
 	void SetupSprites();
 	
 	bool Load() override;
-    bool Update(float deltaTime) override;
+	EScreens Update(float deltaTime) override;
     void Render() override;
 	void Shutdown() override;
 
@@ -57,6 +57,7 @@ private:
 	// Input
 	std::unordered_map<sf::Keyboard::Key, KeyHandler> keyHandlers;
 
+	// TODO maybe scoreManager should belong to World
 	ScoreManager scoreManager;
 
 

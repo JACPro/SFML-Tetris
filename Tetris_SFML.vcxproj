@@ -137,10 +137,12 @@
   <ItemGroup>
     <ClCompile Include="CONSTANTS_ScreenLayout.hpp" />
     <ClCompile Include="Entity.cpp" />
+    <ClCompile Include="GameOverScreen.cpp" />
     <ClCompile Include="GameScreen.cpp" />
     <ClCompile Include="GameScreen.hpp" />
     <ClCompile Include="KeyHandler.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="MainMenuScreen.cpp" />
     <ClCompile Include="ResourceManager.cpp" />
     <ClCompile Include="ScoreManager.cpp" />
     <ClCompile Include="Screen.hpp" />
@@ -151,7 +153,10 @@
   <ItemGroup>
     <ClInclude Include="CONSTANTS_Gameplay.hpp" />
     <ClInclude Include="Entity.hpp" />
+    <ClInclude Include="EScreens.hpp" />
+    <ClInclude Include="GameOverScreen.hpp" />
     <ClInclude Include="KeyHandler.hpp" />
+    <ClInclude Include="MainMenuScreen.hpp" />
     <ClInclude Include="Observable.hpp" />
     <ClInclude Include="Observer.hpp" />
     <ClInclude Include="ResourceManager.hpp" />
