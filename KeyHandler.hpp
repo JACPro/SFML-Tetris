@@ -1,3 +1,5 @@
+#pragma once
+
 #include <functional>
 #include <SFML/Window/Keyboard.hpp>
 

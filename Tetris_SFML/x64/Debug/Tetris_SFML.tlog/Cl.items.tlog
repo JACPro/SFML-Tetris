@@ -1,8 +1,12 @@
 C:\Users\jcunningham\Documents\Personal\CPP\Tetris_SFML\CONSTANTS_ScreenLayout.hpp;C:\Users\jcunningham\Documents\Personal\CPP\Tetris_SFML\Tetris_SFML\x64\Debug\CONSTANTS_ScreenLayout.obj
 C:\Users\jcunningham\Documents\Personal\CPP\Tetris_SFML\Entity.cpp;C:\Users\jcunningham\Documents\Personal\CPP\Tetris_SFML\Tetris_SFML\x64\Debug\Entity.obj
+C:\Users\jcunningham\Documents\Personal\CPP\Tetris_SFML\GameScreen.cpp;C:\Users\jcunningham\Documents\Personal\CPP\Tetris_SFML\Tetris_SFML\x64\Debug\GameScreen.obj
+C:\Users\jcunningham\Documents\Personal\CPP\Tetris_SFML\GameScreen.hpp;C:\Users\jcunningham\Documents\Personal\CPP\Tetris_SFML\Tetris_SFML\x64\Debug\GameScreen.obj
 C:\Users\jcunningham\Documents\Personal\CPP\Tetris_SFML\KeyHandler.cpp;C:\Users\jcunningham\Documents\Personal\CPP\Tetris_SFML\Tetris_SFML\x64\Debug\KeyHandler.obj
 C:\Users\jcunningham\Documents\Personal\CPP\Tetris_SFML\main.cpp;C:\Users\jcunningham\Documents\Personal\CPP\Tetris_SFML\Tetris_SFML\x64\Debug\main.obj
 C:\Users\jcunningham\Documents\Personal\CPP\Tetris_SFML\ResourceManager.cpp;C:\Users\jcunningham\Documents\Personal\CPP\Tetris_SFML\Tetris_SFML\x64\Debug\ResourceManager.obj
 C:\Users\jcunningham\Documents\Personal\CPP\Tetris_SFML\ScoreManager.cpp;C:\Users\jcunningham\Documents\Personal\CPP\Tetris_SFML\Tetris_SFML\x64\Debug\ScoreManager.obj
+C:\Users\jcunningham\Documents\Personal\CPP\Tetris_SFML\Screen.hpp;C:\Users\jcunningham\Documents\Personal\CPP\Tetris_SFML\Tetris_SFML\x64\Debug\Screen.obj
+C:\Users\jcunningham\Documents\Personal\CPP\Tetris_SFML\ScreenFactory.cpp;C:\Users\jcunningham\Documents\Personal\CPP\Tetris_SFML\Tetris_SFML\x64\Debug\ScreenFactory.obj
 C:\Users\jcunningham\Documents\Personal\CPP\Tetris_SFML\Window.cpp;C:\Users\jcunningham\Documents\Personal\CPP\Tetris_SFML\Tetris_SFML\x64\Debug\Window.obj
 C:\Users\jcunningham\Documents\Personal\CPP\Tetris_SFML\World.cpp;C:\Users\jcunningham\Documents\Personal\CPP\Tetris_SFML\Tetris_SFML\x64\Debug\World.obj

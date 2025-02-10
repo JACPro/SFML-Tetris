@@ -19,6 +19,12 @@
     <Filter Include="Header Files\Interfaces">
       <UniqueIdentifier>{3e1ee47a-afa1-4ee2-b992-867aaa7b7c6b}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\Screens">
+      <UniqueIdentifier>{41feaf64-c966-4876-b069-c1ca7c2fec87}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Screens">
+      <UniqueIdentifier>{13863fc3-c2c0-4412-a267-0a7032a9b80a}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -43,6 +49,18 @@
       <Filter>Header Files\Constants</Filter>
     </ClCompile>
     <ClCompile Include="ScoreManager.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Screen.hpp">
+      <Filter>Header Files\Interfaces</Filter>
+    </ClCompile>
+    <ClCompile Include="GameScreen.hpp">
+      <Filter>Header Files\Screens</Filter>
+    </ClCompile>
+    <ClCompile Include="GameScreen.cpp">
+      <Filter>Source Files\Screens</Filter>
+    </ClCompile>
+    <ClCompile Include="ScreenFactory.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -73,6 +91,9 @@
     </ClInclude>
     <ClInclude Include="Observer.hpp">
       <Filter>Header Files\Interfaces</Filter>
+    </ClInclude>
+    <ClInclude Include="ScreenFactory.hpp">
+      <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

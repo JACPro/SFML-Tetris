@@ -4,6 +4,7 @@
 
 #include "Window.hpp"
 #include "World.hpp"
+#include "CONSTANTS_ScreenLayout.hpp"
 
 int main() {
 	srand(time(0));
