@@ -20,8 +20,6 @@ void GameOverScreen::SetupSprites() {
 		static_cast<int>(ceil((float)ScreenLayout::SCREEN_HEIGHT / bgSize.y) * bgSize.y)
 	};
 
-	printf("Bg tile size: %d:%d\r\n", mBackgroundTileSize.x, mBackgroundTileSize.y);
-
 	// Create 4 copies of bg sprite for scrolling effect
 	for (int i = 0; i < sizeof(mBackgroundSprites) / sizeof(mBackgroundSprites[0]); i++) {
 		mBackgroundSprites[i] = sf::Sprite(resourceManager.GetTextures().background);
@@ -131,7 +129,7 @@ void GameOverScreen::Render() {
 	pressEscText.setCharacterSize(80);
 	pressEscText.setFillColor(sf::Color(225, 63, 63));
 
-	pressEscText.setOutlineColor(sf::Color(245, 118, 118));
+	pressEscText.setOutlineColor(sf::Color(255, 158, 158));
 	pressEscText.setOutlineThickness(2.0f);
 
 	sf::FloatRect pressEscTextBounds = pressEscText.getLocalBounds();

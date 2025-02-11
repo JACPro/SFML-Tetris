@@ -21,8 +21,6 @@ void MainMenuScreen::SetupSprites() {
 		static_cast<int>(ceil((float)ScreenLayout::SCREEN_HEIGHT / bgSize.y) * bgSize.y)
 	};
 
-	printf("Bg tile size: %d:%d\r\n", mBackgroundTileSize.x, mBackgroundTileSize.y);
-
 	// Create 4 copies of bg sprite for scrolling effect
 	for (int i = 0; i < sizeof(mBackgroundSprites) / sizeof(mBackgroundSprites[0]); i++) {
 		mBackgroundSprites[i] = sf::Sprite(resourceManager.GetTextures().background);
