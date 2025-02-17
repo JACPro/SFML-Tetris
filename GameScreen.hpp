@@ -54,6 +54,9 @@ private:
 	float timer = 0.0f;
 	float delay = Gameplay::DEFAULT_DELAY;
 
+	std::vector<int> tetrominoIndices{ 0, 1, 2, 3, 4, 5, 6 };
+	int nextTetrominoIndex = 7;
+
 	// Input
 	std::unordered_map<sf::Keyboard::Key, KeyHandler> keyHandlers;
 
@@ -80,4 +83,6 @@ private:
 
 	// -- GAMEPLAY FUNCTIONS --
 	bool Check();
+
+	int GetNewTetrominoIndex();
 };

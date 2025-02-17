@@ -6,6 +6,7 @@
 
 #include "World.hpp"
 #include "Window.hpp"
+#include <random>
 
 
 GameScreen::GameScreen(Window& window, World& world)
@@ -50,7 +51,7 @@ bool GameScreen::Load() {
 	}
 
 	// Generate random first tetromino
-	int n = rand() % 7;
+	int n = GetNewTetrominoIndex();
 	colourNum = n;
 	for (int i = 0; i < 4; i++) {
 		currentTetromino[i].x = Gameplay::TETROMINO_LAYOUTS[n][i] % 2;
@@ -58,7 +59,7 @@ bool GameScreen::Load() {
 	}
 
 	// Generate random next tetromino
-	n = rand() % 7;
+	n = GetNewTetrominoIndex();
 	nextColourNum = n;
 	for (int i = 0; i < 4; i++) {
 		nextTetromino[i].x = Gameplay::TETROMINO_LAYOUTS[n][i] % 2;
@@ -125,7 +126,7 @@ EScreens GameScreen::Update(float deltaTime) {
 			}
 
 			// Tetromino placed - fetch new 
-			int n = rand() % 7;
+			int n = GetNewTetrominoIndex();
 			colourNum = nextColourNum;
 			nextColourNum = n;
 			for (int i = 0; i < 4; i++) {
@@ -303,6 +304,17 @@ bool GameScreen::Check() {
 	}
 
 	return true;
+}
+
+int GameScreen::GetNewTetrominoIndex() {
+	if (nextTetrominoIndex >= tetrominoIndices.size()) {
+		std::random_device rd;
+		std::mt19937 rng(rd());
+		std::shuffle(tetrominoIndices.begin(), tetrominoIndices.end(), rng);
+		nextTetrominoIndex = 0;
+	}
+	
+	return tetrominoIndices[nextTetrominoIndex++];
 }
 
 void GameScreen::RenderScore() {
