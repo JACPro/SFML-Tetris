@@ -25,7 +25,7 @@ private:
 	World& mWorld;
 
 	// Input
-	std::unordered_map<sf::Keyboard::Key, KeyHandler> keyHandlers;
+	std::unordered_map<sf::Keyboard::Key, KeyHandler> mKeyHandlers;
 
 	sf::Sprite mBackgroundSprites[4];
 	sf::Vector2f mBackgroundScrollSpeed = { 20.0f, 20.0f };

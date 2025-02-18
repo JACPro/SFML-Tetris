@@ -1,7 +1,7 @@
 #pragma once
 
 namespace Gameplay {
-	constexpr float DEFAULT_DELAY = 0.3f;
+	constexpr float DEFAULT_DELAY = 1.0f;
 
 	constexpr int TETROMINO_LAYOUTS[7][4] = {
 		1, 3, 5, 7, // I

@@ -38,33 +38,32 @@ private:
 	std::vector<Entity*> mEntities;
 
 	// -- GAMEPLAY FIELDS --
-	int grid[ScreenLayout::GRID_ROWS][ScreenLayout::GRID_COLS];
-	sf::Vector2i currentTetromino[4], tempTetromino[4], nextTetromino[4];
+	int mGrid[ScreenLayout::GRID_ROWS][ScreenLayout::GRID_COLS];
+	sf::Vector2i mCurrentTetromino[4], mTempTetromino[4], mNextTetromino[4];
 
-	Entity* TileEntity;
-	Entity* NextTileGridEntity;
-	Entity* NextTileFrameEntity;
+	Entity* mTileEntity;
+	Entity* mNextTileGridEntity;
+	Entity* mNextTileFrameEntity;
 
-	sf::RenderTexture TilesRenderTexture;
+	sf::RenderTexture mTilesRenderTexture;
 
-	int dx = 0;
-	bool rotate = 0;
-	int colourNum = 0, nextColourNum = 0;
+	int mDiffX = 0;
+	bool mRotate = false;
+	int mColourNum = 0, mNextColourNum = 0;
 
-	float timer = 0.0f;
-	float delay = Gameplay::DEFAULT_DELAY;
+	float mTimer = 0.0f;
+	float mDelay = 1;
 
-	std::vector<int> tetrominoIndices{ 0, 1, 2, 3, 4, 5, 6 };
-	int nextTetrominoIndex = 7;
+	std::vector<int> mTetrominoIndices{ 0, 1, 2, 3, 4, 5, 6 };
+	int mNextTetrominoIndex = 7;
 
 	// Input
-	std::unordered_map<sf::Keyboard::Key, KeyHandler> keyHandlers;
+	std::unordered_map<sf::Keyboard::Key, KeyHandler> mKeyHandlers;
 
 	// TODO maybe scoreManager should belong to World
-	ScoreManager scoreManager;
+	ScoreManager mScoreManager;
 
 
-	// -- INFRASTRUCTURE FUNCTIONS --
 	template<typename T>
 	T* SpawnEntity(const sf::Texture& texture) {
 		if (T* entity = new T(mWorld, texture)) {
@@ -81,8 +80,9 @@ private:
 
 	void RenderScore();
 
-	// -- GAMEPLAY FUNCTIONS --
 	bool Check();
 
 	int GetNewTetrominoIndex();
+
+	void SetNewFallDelayFromLevel(int level);
 };
