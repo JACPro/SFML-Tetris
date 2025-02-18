@@ -2,18 +2,30 @@
 
 #include <functional>
 #include <SFML/Window/Keyboard.hpp>
+#include "EKeyboardEvents.hpp"
 
 class KeyHandler {
 public:
 	KeyHandler();
-	KeyHandler(float updateInterval, std::function<void()> action);
-	void update(sf::Keyboard::Key key, float deltaTime);
+	KeyHandler(float updateInterval, std::function<void()> onPressAction);
+	KeyHandler(float updateInterval, std::function<void()> onPressAction, std::function<void()> onReleaseAction);
+	KeyHandler(float updateInterval, std::function<void()> onPressAction, std::function<void()> onReleaseAction, 
+		std::function<void()> onHeldAction);
+
+	void Update(sf::Keyboard::Key key, float deltaTime);
+
+	void AssignNewKeyAction(EKeyboardEvents eventType, std::function<void()> action);
 
 private:
-	bool isPressed;
-	float updateCountdownTimer;
-	float updateInterval;
-	std::function<void()> action;
+	bool mIsPressed;
+	float mUpdateCountdownTimer;
+	float mUpdateInterval;
+	
+	std::function<void()> mOnPressAction;
+	std::function<void()> mOnHeldAction;
+	std::function<void()> mOnReleaseAction;
 
-	void executeAction();
+	void ExecuteOnPressAction();
+	void ExecuteOnReleaseAction();
+	void ExecuteOnHeldAction();
 };

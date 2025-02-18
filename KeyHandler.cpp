@@ -1,22 +1,69 @@
 #include "KeyHandler.hpp"
 
-KeyHandler::KeyHandler() : isPressed(false), updateCountdownTimer(0.0f), updateInterval(0.0f), action() {}
+KeyHandler::KeyHandler() : mIsPressed(false), mUpdateCountdownTimer(0.0f), mUpdateInterval(0.0f), mOnPressAction() {
+}
 
-KeyHandler::KeyHandler(float updateInterval, std::function<void()> action)
-	: isPressed(false), updateCountdownTimer(0.0f), updateInterval(updateInterval), action(action) {}
+KeyHandler::KeyHandler(float updateInterval, std::function<void()> onPressAction)
+	: mIsPressed(false), mUpdateCountdownTimer(0.0f), mUpdateInterval(updateInterval), mOnPressAction(onPressAction) {
+}
 
-void KeyHandler::update(sf::Keyboard::Key key, float deltaTime) {
+KeyHandler::KeyHandler(float updateInterval, std::function<void()> onPressAction, std::function<void()> onReleaseAction)
+	: mIsPressed(false), mUpdateCountdownTimer(0.0f), mUpdateInterval(updateInterval), mOnPressAction(onPressAction), 
+	mOnReleaseAction(onReleaseAction) { 
+}
+
+KeyHandler::KeyHandler(float updateInterval, std::function<void()> onPressAction, std::function<void()> onReleaseAction, 
+	std::function<void()> onHeldAction)
+	: mIsPressed(false), mUpdateCountdownTimer(0.0f), mUpdateInterval(updateInterval), mOnPressAction(onPressAction), 
+	mOnReleaseAction(onReleaseAction), mOnHeldAction(onHeldAction) {
+}
+
+void KeyHandler::Update(sf::Keyboard::Key key, float deltaTime) {
 	if (sf::Keyboard::isKeyPressed(key)) {
-		if (!isPressed || (updateCountdownTimer -= deltaTime) < 0) { //first press or repeat interval has elapsed
-			executeAction();
-			updateCountdownTimer = updateInterval;
-			isPressed = true;
+		if (!mIsPressed) { // first press 
+			if (mOnPressAction != nullptr) { 
+				ExecuteOnPressAction();
+			}
+			mUpdateCountdownTimer = mUpdateInterval;
+			mIsPressed = true;
+		} else if ((mUpdateCountdownTimer -= deltaTime) < 0) { // repeat interval has elapsed
+			if (mOnHeldAction != nullptr) {
+				ExecuteOnHeldAction();
+			}
+			mUpdateCountdownTimer = mUpdateInterval;
 		}
 	} else {
-		isPressed = false;
+		if (mIsPressed) { // just released
+			if (mOnReleaseAction != nullptr) {
+				ExecuteOnReleaseAction();
+			}
+			mIsPressed = false;
+		}
 	}
 }
 
-void KeyHandler::executeAction() {
-	action();
+void KeyHandler::ExecuteOnPressAction() {
+	mOnPressAction();
+}
+
+void KeyHandler::ExecuteOnReleaseAction() {
+	mOnReleaseAction();
+}
+
+void KeyHandler::ExecuteOnHeldAction() {
+	mOnHeldAction();
+}
+
+void KeyHandler::AssignNewKeyAction(EKeyboardEvents eventType, std::function<void()> action) {
+	switch (eventType) {
+	case EKeyboardEvents::Pressed: 
+		mOnPressAction = action;
+		break;
+	case EKeyboardEvents::Released:
+		mOnReleaseAction = action;
+		break;
+	case EKeyboardEvents::Held:
+		mOnHeldAction = action;
+		break;
+	}
 }

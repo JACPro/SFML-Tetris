@@ -1,8 +1,2 @@
-﻿  GameScreen.cpp
-C:\Users\jcunningham\Documents\Personal\CPP\Tetris_SFML\GameScreen.cpp(320,18): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
-C:\Users\jcunningham\Documents\Personal\CPP\Tetris_SFML\GameScreen.cpp(327,28): warning C4244: 'initializing': conversion from 'T' to 'float', possible loss of data
-C:\Users\jcunningham\Documents\Personal\CPP\Tetris_SFML\GameScreen.cpp(327,28): warning C4244:         with
-C:\Users\jcunningham\Documents\Personal\CPP\Tetris_SFML\GameScreen.cpp(327,28): warning C4244:         [
-C:\Users\jcunningham\Documents\Personal\CPP\Tetris_SFML\GameScreen.cpp(327,28): warning C4244:             T=unsigned int
-C:\Users\jcunningham\Documents\Personal\CPP\Tetris_SFML\GameScreen.cpp(327,28): warning C4244:         ]
+﻿  KeyHandler.cpp
   Tetris_SFML.vcxproj -> C:\Users\jcunningham\Documents\Personal\CPP\Tetris_SFML\x64\Debug\Tetris_SFML.exe

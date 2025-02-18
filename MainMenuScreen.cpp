@@ -37,15 +37,15 @@ bool MainMenuScreen::Load() {
 	SetupSprites();
 
 	// Input 
-	keyHandlers[sf::Keyboard::Enter] = KeyHandler(0.1f, [&]() { mNextScreen = EScreens::Game; });
+	mKeyHandlers[sf::Keyboard::Enter] = KeyHandler(0.1f, [&]() { mNextScreen = EScreens::Game; });
 	
 	return true;
 }
 
 EScreens MainMenuScreen::Update(float deltaTime) {
 	// Update key handlers
-	for (auto& [key, handler] : keyHandlers) {
-		handler.update(key, deltaTime);
+	for (auto& [key, handler] : mKeyHandlers) {
+		handler.Update(key, deltaTime);
 	}
 
 	// Update background tile positions

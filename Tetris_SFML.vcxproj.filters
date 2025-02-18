@@ -25,6 +25,9 @@
     <Filter Include="Source Files\Screens">
       <UniqueIdentifier>{13863fc3-c2c0-4412-a267-0a7032a9b80a}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\Enums">
+      <UniqueIdentifier>{a688c4cd-fc70-4f5a-b744-69de04ef865f}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -104,11 +107,14 @@
     <ClInclude Include="MainMenuScreen.hpp">
       <Filter>Header Files\Screens</Filter>
     </ClInclude>
-    <ClInclude Include="EScreens.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="GameOverScreen.hpp">
       <Filter>Header Files\Screens</Filter>
+    </ClInclude>
+    <ClInclude Include="EScreens.hpp">
+      <Filter>Header Files\Enums</Filter>
+    </ClInclude>
+    <ClInclude Include="EKeyboardEvents.hpp">
+      <Filter>Header Files\Enums</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

@@ -68,9 +68,17 @@ bool GameScreen::Load() {
 
 	// Input 
 	mKeyHandlers[sf::Keyboard::A] = KeyHandler(0.1f, [&]() { mDiffX = -1; });
+	mKeyHandlers[sf::Keyboard::A].AssignNewKeyAction(EKeyboardEvents::Held, [&]() { mDiffX = -1; });
+
 	mKeyHandlers[sf::Keyboard::D] = KeyHandler(0.1f, [&]() { mDiffX = 1; });
+	mKeyHandlers[sf::Keyboard::D].AssignNewKeyAction(EKeyboardEvents::Held, [&]() { mDiffX = 1; });
+
 	mKeyHandlers[sf::Keyboard::W] = KeyHandler(0.2f, [&]() { mRotate = true; });
+	mKeyHandlers[sf::Keyboard::W].AssignNewKeyAction(EKeyboardEvents::Held, [&]() { mRotate = true; });
+
 	mKeyHandlers[sf::Keyboard::S] = KeyHandler(0.0f, [&]() { mDelay = 0.05f; });
+	mKeyHandlers[sf::Keyboard::S].AssignNewKeyAction(EKeyboardEvents::Held, [&]() { mDelay = 0.05f; });
+
 
 	return true;
 }
@@ -81,7 +89,7 @@ EScreens GameScreen::Update(float deltaTime) {
 
 	// Update key handlers
 	for (auto& [key, handler] : mKeyHandlers) {
-		handler.update(key, deltaTime);
+		handler.Update(key, deltaTime);
 	}
 
 	// Move
@@ -318,7 +326,6 @@ int GameScreen::GetNewTetrominoIndex() {
 void GameScreen::SetNewFallDelayFromLevel(int level) {
 	// speed curve as defined in Tetris Worlds (https://tetris.wiki/Marathon)
 	mDelay = std::pow((0.8 - ((level - 1) * 0.007)), (level - 1));
-	printf("%f\r\n", mDelay);
 }
 
 void GameScreen::RenderScore() {

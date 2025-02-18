@@ -152,6 +152,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="CONSTANTS_Gameplay.hpp" />
+    <ClInclude Include="EKeyboardEvents.hpp" />
     <ClInclude Include="Entity.hpp" />
     <ClInclude Include="EScreens.hpp" />
     <ClInclude Include="GameOverScreen.hpp" />

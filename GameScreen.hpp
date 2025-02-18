@@ -80,7 +80,7 @@ private:
 
 	void RenderScore();
 
-	bool Check();
+	bool CheckIfLegalMove();
 
 	int GetNewTetrominoIndex();
 
