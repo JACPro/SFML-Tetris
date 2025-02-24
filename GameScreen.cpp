@@ -13,7 +13,7 @@ GameScreen::GameScreen(Window& window, World& world)
 	: mWindow(window)
 	, mWorld(world)
 {
-	AddObserver(&mScoreManager);
+	OnLinesCleared.AddObserver(&mScoreManager);
 	mTilesRenderTexture.create(ScreenLayout::SCREEN_WIDTH, ScreenLayout::SCREEN_HEIGHT);
 }
 
@@ -169,7 +169,7 @@ EScreens GameScreen::Update(float deltaTime) {
 		}
 	}
 	if (clearedLines) {
-		NotifyObservers(clearedLines);
+		OnLinesCleared.NotifyObservers(clearedLines);
 	}
 
 	mDiffX = 0;

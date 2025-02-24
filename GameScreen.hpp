@@ -15,11 +15,7 @@ class World;
 class KeyHandler;
 
 
-// TODO consider changing this inheritance from observable to a composition based structure
-// where World has object of Observable type, because:
-// 1. This would allow multiple events where we currently support only 1
-// 2. Composition > Inheritance
-class GameScreen : public IScreen, public Observable<int>{
+class GameScreen : public IScreen {
 public:
 	explicit GameScreen(Window& window, World &world);
 
@@ -29,6 +25,10 @@ public:
 	EScreens Update(float deltaTime) override;
     void Render() override;
 	void Shutdown() override;
+
+	// Events
+	Observable<int> OnLinesCleared = Observable<int>();
+
 
 private:
 	// -- INFRASTRUCTURE FIELDS --
