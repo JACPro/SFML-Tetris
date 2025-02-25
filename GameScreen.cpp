@@ -8,12 +8,14 @@
 #include "Window.hpp"
 #include <random>
 
-
 GameScreen::GameScreen(Window& window, World& world)
 	: mWindow(window)
 	, mWorld(world)
+	, mScoreManager(mLevelManager)
 {
 	OnLinesCleared.AddObserver(&mScoreManager);
+	OnLinesCleared.AddObserver(&mLevelManager);
+	mLevelManager.OnLevelChanged.AddObserver(this);
 	mTilesRenderTexture.create(ScreenLayout::SCREEN_WIDTH, ScreenLayout::SCREEN_HEIGHT);
 }
 
@@ -29,7 +31,7 @@ void GameScreen::SetupSprites() {
 
 	mNextTileGridEntity = SpawnEntity<Entity>(resourceManager.GetTextures().grid);
 	mNextTileGridEntity->GetSprite().setTextureRect({ 0, 0, 90, 150 });
-	mNextTileGridEntity->GetSprite().setPosition(ScreenLayout::NEXT_TETROMINO_BOX_POSITION);
+	mNextTileGridEntity->GetSprite().setPosition(sf::Vector2f(ScreenLayout::RIGHT_UI_PANEL_POS_X, ScreenLayout::NEXT_TETROMINO_BOX_POS_Y));
 
 	Entity* FrameEntity = SpawnEntity<Entity>(resourceManager.GetTextures().frame);
 
@@ -76,8 +78,8 @@ bool GameScreen::Load() {
 	mKeyHandlers[sf::Keyboard::W] = KeyHandler(0.2f, [&]() { mRotate = true; });
 	mKeyHandlers[sf::Keyboard::W].AssignNewKeyAction(EKeyboardEvents::Held, [&]() { mRotate = true; });
 
-	mKeyHandlers[sf::Keyboard::S] = KeyHandler(0.0f, [&]() { mDelay = 0.05f; });
-	mKeyHandlers[sf::Keyboard::S].AssignNewKeyAction(EKeyboardEvents::Held, [&]() { mDelay = 0.05f; });
+	mKeyHandlers[sf::Keyboard::S] = KeyHandler(0.0f, [&]() { mSoftDrop = true; });
+	mKeyHandlers[sf::Keyboard::S].AssignNewKeyAction(EKeyboardEvents::Held, [&]() { mSoftDrop = true; });
 
 
 	return true;
@@ -122,7 +124,8 @@ EScreens GameScreen::Update(float deltaTime) {
 	}
 
 	// Tick
-	if (mTimer > mDelay) {
+	float moveDelay = mSoftDrop ? 0.05f : mDelay;
+	if (mTimer > moveDelay) {
 		for (int i = 0; i < 4; i++) {
 			mTempTetromino[i] = mCurrentTetromino[i];
 			mCurrentTetromino[i].y += 1;
@@ -174,7 +177,7 @@ EScreens GameScreen::Update(float deltaTime) {
 
 	mDiffX = 0;
 	mRotate = false;
-	mDelay = Gameplay::DEFAULT_DELAY;
+	mSoftDrop = false;
 
 	// Grid
 	for (int i = 0; i < ScreenLayout::GRID_ROWS; i++) {
@@ -214,7 +217,7 @@ EScreens GameScreen::Update(float deltaTime) {
 	nextTetrominoBoxHorPadding /= 2;
 
 	float xOffset = nextTileGridSprite.getPosition().x + nextTetrominoBoxHorPadding;
-	float yOffset = nextTileGridSprite.getPosition().y + ScreenLayout::NEXT_TETROMINO_BOX_PADDING;
+	float yOffset = nextTileGridSprite.getPosition().y + ScreenLayout::UI_BOX_PADDING;
 	if (!leftCol) { // I shape
 		xOffset -= ScreenLayout::TILE_WIDTH / 2;
 	}
@@ -254,7 +257,8 @@ EScreens GameScreen::Update(float deltaTime) {
 
 void GameScreen::Render() {
 	RenderEntities();
-	RenderScore();
+	RenderCurrScoreBox();
+	RenderCurrLevelBox();
 
 	sf::Sprite fullScreenSprite(mWorld.GetRenderTex().getTexture());
 
@@ -328,19 +332,19 @@ void GameScreen::SetNewFallDelayFromLevel(int level) {
 	mDelay = std::pow((0.8 - ((level - 1) * 0.007)), (level - 1));
 }
 
-void GameScreen::RenderScore() {
+void GameScreen::RenderCurrScoreBox() {
 	// -- BACKGROUND --
-	sf::RectangleShape scoreTextBox({ 190.f, 80.f });
+	sf::RectangleShape scoreTextBox({ ScreenLayout::UI_BOX_WIDTH, ScreenLayout::SCORE_TEXT_BOX_HEIGHT });
 	float nextTileFrameHeight = mNextTileFrameEntity->GetSprite().getTexture()->getSize().y;
 	sf::Vector2f scoreTextBoxPosition = sf::Vector2f(
-		ScreenLayout::NEXT_TETROMINO_BOX_POSITION.x,
-		ScreenLayout::NEXT_TETROMINO_BOX_POSITION.y + nextTileFrameHeight + ScreenLayout::SCORE_TEXT_BOX_PADDING
+		ScreenLayout::RIGHT_UI_PANEL_POS_X,
+		ScreenLayout::NEXT_TETROMINO_BOX_POS_Y + nextTileFrameHeight + ScreenLayout::SCORE_TEXT_BOX_PADDING
 	);
 
 	scoreTextBox.setPosition(scoreTextBoxPosition);
-	scoreTextBox.setFillColor(sf::Color(34, 88, 130));
-	scoreTextBox.setOutlineColor(sf::Color(175, 227, 254));
-	scoreTextBox.setOutlineThickness(10.0f);
+	scoreTextBox.setFillColor(ScreenLayout::UI_BOX_FILL_COLOUR);
+	scoreTextBox.setOutlineColor(ScreenLayout::UI_BOX_OUTLINE_COLOUR);
+	scoreTextBox.setOutlineThickness(ScreenLayout::UI_BOX_OUTLINE_THICKNESS);
 
 
 	// -- TEXT --
@@ -354,7 +358,7 @@ void GameScreen::RenderScore() {
 	// Formatting
 	scoreText.setFont(mWorld.GetResources().GetFonts().font); // a font is required to make a text object
 	scoreText.setCharacterSize(36);
-	scoreText.setFillColor(sf::Color(175, 227, 254));
+	scoreText.setFillColor(ScreenLayout::UI_BOX_TEXT_COLOUR);
 
 
 	sf::FloatRect scoreTextSize = scoreText.getLocalBounds();
@@ -370,3 +374,56 @@ void GameScreen::RenderScore() {
 	mWindow.GetRenderTex().draw(scoreTextBox);
 	mWindow.GetRenderTex().draw(scoreText);
 }
+
+void GameScreen::RenderCurrLevelBox() {
+	// -- BACKGROUND --
+	sf::RectangleShape levelTextBox({ ScreenLayout::UI_BOX_WIDTH, ScreenLayout::LEVEL_TEXT_BOX_HEIGHT });
+	float nextTileFrameHeight = mNextTileFrameEntity->GetSprite().getTexture()->getSize().y;
+	float scoreBoxHeightAndPadding = (
+		ScreenLayout::SCORE_TEXT_BOX_HEIGHT + 
+		ScreenLayout::UI_BOX_OUTLINE_THICKNESS * 2 + // outline of bottom of score box and outline of top of level box
+		ScreenLayout::UI_BOX_PADDING 
+	);
+	sf::Vector2f levelTextBoxPosition = sf::Vector2f(
+		ScreenLayout::RIGHT_UI_PANEL_POS_X,
+		ScreenLayout::NEXT_TETROMINO_BOX_POS_Y + nextTileFrameHeight + ScreenLayout::LEVEL_TEXT_BOX_PADDING + scoreBoxHeightAndPadding
+	);
+
+	levelTextBox.setPosition(levelTextBoxPosition);
+	levelTextBox.setFillColor(ScreenLayout::UI_BOX_FILL_COLOUR);
+	levelTextBox.setOutlineColor(ScreenLayout::UI_BOX_OUTLINE_COLOUR);
+	levelTextBox.setOutlineThickness(ScreenLayout::UI_BOX_OUTLINE_THICKNESS);
+
+
+	// -- TEXT --
+	sf::Text levelText;
+
+	// Write text
+	std::ostringstream stringBuff;
+	stringBuff << "Level " << mLevelManager.GetLevel();
+	levelText.setString(stringBuff.str());
+
+	// Formatting
+	levelText.setFont(mWorld.GetResources().GetFonts().font); // a font is required to make a text object
+	levelText.setCharacterSize(36);
+	levelText.setFillColor(ScreenLayout::UI_BOX_TEXT_COLOUR);
+
+
+	sf::FloatRect scoreTextSize = levelText.getLocalBounds();
+
+	sf::Vector2f levelTextPosition = sf::Vector2f(
+		levelTextBoxPosition.x + ScreenLayout::LEVEL_TEXT_PADDING_X,
+		levelTextBoxPosition.y + ScreenLayout::LEVEL_TEXT_PADDING_Y
+	);
+	levelText.setPosition(levelTextPosition);
+
+
+	// -- RENDER --
+	mWindow.GetRenderTex().draw(levelTextBox);
+	mWindow.GetRenderTex().draw(levelText);
+}
+
+void GameScreen::Notify(const int& value) {
+	SetNewFallDelayFromLevel(value);
+}
+

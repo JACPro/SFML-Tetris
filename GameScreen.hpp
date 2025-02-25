@@ -8,6 +8,7 @@
 #include "ScoreManager.hpp"
 
 #include "SFML/Graphics.hpp"
+#include "LevelManager.hpp"
 
 class Entity;
 class Window;
@@ -15,7 +16,7 @@ class World;
 class KeyHandler;
 
 
-class GameScreen : public IScreen {
+class GameScreen : public IScreen, public IObserver<int> {
 public:
 	explicit GameScreen(Window& window, World &world);
 
@@ -25,6 +26,8 @@ public:
 	EScreens Update(float deltaTime) override;
     void Render() override;
 	void Shutdown() override;
+
+	void Notify(const int& value) override;
 
 	// Events
 	Observable<int> OnLinesCleared = Observable<int>();
@@ -54,6 +57,8 @@ private:
 	float mTimer = 0.0f;
 	float mDelay = 1;
 
+	bool mSoftDrop = false;
+
 	std::vector<int> mTetrominoIndices{ 0, 1, 2, 3, 4, 5, 6 };
 	int mNextTetrominoIndex = 7;
 
@@ -62,7 +67,8 @@ private:
 
 	// TODO maybe scoreManager should belong to World
 	ScoreManager mScoreManager;
-
+	// TODO maybe levelManager should belong to World
+	LevelManager mLevelManager;
 
 	template<typename T>
 	T* SpawnEntity(const sf::Texture& texture) {
@@ -78,7 +84,9 @@ private:
 	void RenderEntities();
 	void DestroyAllEntities();
 
-	void RenderScore();
+	void RenderCurrScoreBox();
+
+	void RenderCurrLevelBox();
 
 	bool CheckIfLegalMove();
 

@@ -1,17 +1,22 @@
 #pragma once
 
 #include "Observer.hpp"
+#include "LevelManager.hpp"
 
 class ScoreManager : public IObserver<int> {
 public:
-	explicit ScoreManager() : score(0) {}
+	explicit ScoreManager(LevelManager& levelManager);
 
-	int GetScore() { return score; }
+	int GetScore() { return mScore; }
 
-	void Notify(const int& value);
+	void Notify(const int& value) override;
 
 
 private:
-	int score;
+	int mScore;
 
+	LevelManager& mLevelManager;
+
+
+	bool InScoringRange(int value);
 };

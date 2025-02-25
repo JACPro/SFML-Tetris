@@ -1,2 +1,80 @@
-﻿  KeyHandler.cpp
+﻿  CONSTANTS_ScreenLayout.hpp
+  Entity.cpp
+  GameOverScreen.cpp
+C:\Users\jcunningham\Documents\Personal\CPP\Tetris_SFML\GameOverScreen.cpp(30,55): warning C4244: 'argument': conversion from 'T' to 'float', possible loss of data
+C:\Users\jcunningham\Documents\Personal\CPP\Tetris_SFML\GameOverScreen.cpp(30,55): warning C4244:         with
+C:\Users\jcunningham\Documents\Personal\CPP\Tetris_SFML\GameOverScreen.cpp(30,55): warning C4244:         [
+C:\Users\jcunningham\Documents\Personal\CPP\Tetris_SFML\GameOverScreen.cpp(30,55): warning C4244:             T=int
+C:\Users\jcunningham\Documents\Personal\CPP\Tetris_SFML\GameOverScreen.cpp(30,55): warning C4244:         ]
+C:\Users\jcunningham\Documents\Personal\CPP\Tetris_SFML\GameOverScreen.cpp(31,58): warning C4244: 'argument': conversion from 'T' to 'float', possible loss of data
+C:\Users\jcunningham\Documents\Personal\CPP\Tetris_SFML\GameOverScreen.cpp(31,58): warning C4244:         with
+C:\Users\jcunningham\Documents\Personal\CPP\Tetris_SFML\GameOverScreen.cpp(31,58): warning C4244:         [
+C:\Users\jcunningham\Documents\Personal\CPP\Tetris_SFML\GameOverScreen.cpp(31,58): warning C4244:             T=int
+C:\Users\jcunningham\Documents\Personal\CPP\Tetris_SFML\GameOverScreen.cpp(31,58): warning C4244:         ]
+C:\Users\jcunningham\Documents\Personal\CPP\Tetris_SFML\GameOverScreen.cpp(32,78): warning C4244: 'argument': conversion from 'T' to 'float', possible loss of data
+C:\Users\jcunningham\Documents\Personal\CPP\Tetris_SFML\GameOverScreen.cpp(32,78): warning C4244:         with
+C:\Users\jcunningham\Documents\Personal\CPP\Tetris_SFML\GameOverScreen.cpp(32,78): warning C4244:         [
+C:\Users\jcunningham\Documents\Personal\CPP\Tetris_SFML\GameOverScreen.cpp(32,78): warning C4244:             T=int
+C:\Users\jcunningham\Documents\Personal\CPP\Tetris_SFML\GameOverScreen.cpp(32,78): warning C4244:         ]
+C:\Users\jcunningham\Documents\Personal\CPP\Tetris_SFML\GameOverScreen.cpp(32,55): warning C4244: 'argument': conversion from 'T' to 'float', possible loss of data
+C:\Users\jcunningham\Documents\Personal\CPP\Tetris_SFML\GameOverScreen.cpp(32,55): warning C4244:         with
+C:\Users\jcunningham\Documents\Personal\CPP\Tetris_SFML\GameOverScreen.cpp(32,55): warning C4244:         [
+C:\Users\jcunningham\Documents\Personal\CPP\Tetris_SFML\GameOverScreen.cpp(32,55): warning C4244:             T=int
+C:\Users\jcunningham\Documents\Personal\CPP\Tetris_SFML\GameOverScreen.cpp(32,55): warning C4244:         ]
+  GameScreen.cpp
+C:\Users\jcunningham\Documents\Personal\CPP\Tetris_SFML\GameScreen.cpp(333,19): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+C:\Users\jcunningham\Documents\Personal\CPP\Tetris_SFML\GameScreen.cpp(341,28): warning C4244: 'initializing': conversion from 'T' to 'float', possible loss of data
+C:\Users\jcunningham\Documents\Personal\CPP\Tetris_SFML\GameScreen.cpp(341,28): warning C4244:         with
+C:\Users\jcunningham\Documents\Personal\CPP\Tetris_SFML\GameScreen.cpp(341,28): warning C4244:         [
+C:\Users\jcunningham\Documents\Personal\CPP\Tetris_SFML\GameScreen.cpp(341,28): warning C4244:             T=unsigned int
+C:\Users\jcunningham\Documents\Personal\CPP\Tetris_SFML\GameScreen.cpp(341,28): warning C4244:         ]
+C:\Users\jcunningham\Documents\Personal\CPP\Tetris_SFML\GameScreen.cpp(384,28): warning C4244: 'initializing': conversion from 'T' to 'float', possible loss of data
+C:\Users\jcunningham\Documents\Personal\CPP\Tetris_SFML\GameScreen.cpp(384,28): warning C4244:         with
+C:\Users\jcunningham\Documents\Personal\CPP\Tetris_SFML\GameScreen.cpp(384,28): warning C4244:         [
+C:\Users\jcunningham\Documents\Personal\CPP\Tetris_SFML\GameScreen.cpp(384,28): warning C4244:             T=unsigned int
+C:\Users\jcunningham\Documents\Personal\CPP\Tetris_SFML\GameScreen.cpp(384,28): warning C4244:         ]
+  GameScreen.hpp
+  KeyHandler.cpp
+  LevelManager.cpp
+  main.cpp
+C:\Users\jcunningham\Documents\Personal\CPP\Tetris_SFML\main.cpp(10,12): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
+  MainMenuScreen.cpp
+C:\Users\jcunningham\Documents\Personal\CPP\Tetris_SFML\MainMenuScreen.cpp(31,55): warning C4244: 'argument': conversion from 'T' to 'float', possible loss of data
+C:\Users\jcunningham\Documents\Personal\CPP\Tetris_SFML\MainMenuScreen.cpp(31,55): warning C4244:         with
+C:\Users\jcunningham\Documents\Personal\CPP\Tetris_SFML\MainMenuScreen.cpp(31,55): warning C4244:         [
+C:\Users\jcunningham\Documents\Personal\CPP\Tetris_SFML\MainMenuScreen.cpp(31,55): warning C4244:             T=int
+C:\Users\jcunningham\Documents\Personal\CPP\Tetris_SFML\MainMenuScreen.cpp(31,55): warning C4244:         ]
+C:\Users\jcunningham\Documents\Personal\CPP\Tetris_SFML\MainMenuScreen.cpp(32,58): warning C4244: 'argument': conversion from 'T' to 'float', possible loss of data
+C:\Users\jcunningham\Documents\Personal\CPP\Tetris_SFML\MainMenuScreen.cpp(32,58): warning C4244:         with
+C:\Users\jcunningham\Documents\Personal\CPP\Tetris_SFML\MainMenuScreen.cpp(32,58): warning C4244:         [
+C:\Users\jcunningham\Documents\Personal\CPP\Tetris_SFML\MainMenuScreen.cpp(32,58): warning C4244:             T=int
+C:\Users\jcunningham\Documents\Personal\CPP\Tetris_SFML\MainMenuScreen.cpp(32,58): warning C4244:         ]
+C:\Users\jcunningham\Documents\Personal\CPP\Tetris_SFML\MainMenuScreen.cpp(33,78): warning C4244: 'argument': conversion from 'T' to 'float', possible loss of data
+C:\Users\jcunningham\Documents\Personal\CPP\Tetris_SFML\MainMenuScreen.cpp(33,78): warning C4244:         with
+C:\Users\jcunningham\Documents\Personal\CPP\Tetris_SFML\MainMenuScreen.cpp(33,78): warning C4244:         [
+C:\Users\jcunningham\Documents\Personal\CPP\Tetris_SFML\MainMenuScreen.cpp(33,78): warning C4244:             T=int
+C:\Users\jcunningham\Documents\Personal\CPP\Tetris_SFML\MainMenuScreen.cpp(33,78): warning C4244:         ]
+C:\Users\jcunningham\Documents\Personal\CPP\Tetris_SFML\MainMenuScreen.cpp(33,55): warning C4244: 'argument': conversion from 'T' to 'float', possible loss of data
+C:\Users\jcunningham\Documents\Personal\CPP\Tetris_SFML\MainMenuScreen.cpp(33,55): warning C4244:         with
+C:\Users\jcunningham\Documents\Personal\CPP\Tetris_SFML\MainMenuScreen.cpp(33,55): warning C4244:         [
+C:\Users\jcunningham\Documents\Personal\CPP\Tetris_SFML\MainMenuScreen.cpp(33,55): warning C4244:             T=int
+C:\Users\jcunningham\Documents\Personal\CPP\Tetris_SFML\MainMenuScreen.cpp(33,55): warning C4244:         ]
+  ResourceManager.cpp
+  ScoreManager.cpp
+  Screen.hpp
+  ScreenFactory.cpp
+  Window.cpp
+C:\Users\jcunningham\Documents\Personal\CPP\Tetris_SFML\Window.cpp(10,34): warning C4244: 'argument': conversion from 'uint32_t' to 'T', possible loss of data
+C:\Users\jcunningham\Documents\Personal\CPP\Tetris_SFML\Window.cpp(10,34): warning C4244:         with
+C:\Users\jcunningham\Documents\Personal\CPP\Tetris_SFML\Window.cpp(10,34): warning C4244:         [
+C:\Users\jcunningham\Documents\Personal\CPP\Tetris_SFML\Window.cpp(10,34): warning C4244:             T=float
+C:\Users\jcunningham\Documents\Personal\CPP\Tetris_SFML\Window.cpp(10,34): warning C4244:         ]
+C:\Users\jcunningham\Documents\Personal\CPP\Tetris_SFML\Window.cpp(10,22): warning C4244: 'argument': conversion from 'uint32_t' to 'T', possible loss of data
+C:\Users\jcunningham\Documents\Personal\CPP\Tetris_SFML\Window.cpp(10,22): warning C4244:         with
+C:\Users\jcunningham\Documents\Personal\CPP\Tetris_SFML\Window.cpp(10,22): warning C4244:         [
+C:\Users\jcunningham\Documents\Personal\CPP\Tetris_SFML\Window.cpp(10,22): warning C4244:             T=float
+C:\Users\jcunningham\Documents\Personal\CPP\Tetris_SFML\Window.cpp(10,22): warning C4244:         ]
+  World.cpp
+  Generating Code...
+Tetris_SFML\x64\Debug\GameScreen.obj : warning LNK4042: object specified more than once; extras ignored
   Tetris_SFML.vcxproj -> C:\Users\jcunningham\Documents\Personal\CPP\Tetris_SFML\x64\Debug\Tetris_SFML.exe

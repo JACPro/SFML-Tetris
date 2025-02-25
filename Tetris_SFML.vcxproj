@@ -141,6 +141,7 @@
     <ClCompile Include="GameScreen.cpp" />
     <ClCompile Include="GameScreen.hpp" />
     <ClCompile Include="KeyHandler.cpp" />
+    <ClCompile Include="LevelManager.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="MainMenuScreen.cpp" />
     <ClCompile Include="ResourceManager.cpp" />
@@ -157,6 +158,7 @@
     <ClInclude Include="EScreens.hpp" />
     <ClInclude Include="GameOverScreen.hpp" />
     <ClInclude Include="KeyHandler.hpp" />
+    <ClInclude Include="LevelManager.hpp" />
     <ClInclude Include="MainMenuScreen.hpp" />
     <ClInclude Include="Observable.hpp" />
     <ClInclude Include="Observer.hpp" />
