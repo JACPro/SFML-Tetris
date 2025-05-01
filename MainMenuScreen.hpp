@@ -13,7 +13,7 @@ class MainMenuScreen : public IScreen {
 public:
 	explicit MainMenuScreen(Window& window, World& world);
 
-	void SetupSprites();
+	void SetupSprites() override;
 
 	bool Load() override;
 	EScreens Update(float deltaTime) override;

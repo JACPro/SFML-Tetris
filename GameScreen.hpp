@@ -20,7 +20,7 @@ class GameScreen : public IScreen, public IObserver<int> {
 public:
 	explicit GameScreen(Window& window, World &world);
 
-	void SetupSprites();
+	void SetupSprites() override;
 	
 	bool Load() override;
 	EScreens Update(float deltaTime) override;
