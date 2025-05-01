@@ -85,8 +85,10 @@ private:
 	void DestroyAllEntities();
 
 	void RenderCurrScoreBox();
-
 	void RenderCurrLevelBox();
+
+	void DrawCurrPieceToRenderTex();
+	void DrawDropGhostToRenderText();
 
 	bool CheckIfLegalMove();
 

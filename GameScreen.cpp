@@ -237,20 +237,8 @@ EScreens GameScreen::Update(float deltaTime) {
 		mTilesRenderTexture.draw(mTileEntity->GetSprite());
 	}
 
-	// Current Tetromino
-	for (int i = 0; i < 4; i++) {
-		mTileEntity->GetSprite().setTextureRect(sf::IntRect(
-			mColourNum * ScreenLayout::TILE_WIDTH, 0,
-			ScreenLayout::TILE_WIDTH, ScreenLayout::TILE_WIDTH)
-		);
-		mTileEntity->GetSprite().setPosition(
-			static_cast<float>(mCurrentTetromino[i].x * ScreenLayout::TILE_WIDTH),
-			static_cast<float>(mCurrentTetromino[i].y * ScreenLayout::TILE_WIDTH)
-		);
-
-		mTileEntity->GetSprite().move(50, 100);
-		mTilesRenderTexture.draw(mTileEntity->GetSprite());
-	}
+	DrawCurrPieceToRenderTex();
+	DrawDropGhostToRenderText();	
 
 	return mNextScreen;
 }
@@ -421,6 +409,62 @@ void GameScreen::RenderCurrLevelBox() {
 	// -- RENDER --
 	mWindow.GetRenderTex().draw(levelTextBox);
 	mWindow.GetRenderTex().draw(levelText);
+}
+
+void GameScreen::DrawCurrPieceToRenderTex() {
+	sf::Sprite& sprite = mTileEntity->GetSprite();
+
+	for (int i = 0; i < 4; i++) {
+		sprite.setTextureRect(sf::IntRect(
+			mColourNum * ScreenLayout::TILE_WIDTH, 0,
+			ScreenLayout::TILE_WIDTH, ScreenLayout::TILE_WIDTH)
+		);
+		sprite.setPosition(
+			static_cast<float>(mCurrentTetromino[i].x * ScreenLayout::TILE_WIDTH),
+			static_cast<float>(mCurrentTetromino[i].y * ScreenLayout::TILE_WIDTH)
+		);
+		sprite.move(50, 100);
+
+		mTilesRenderTexture.draw(mTileEntity->GetSprite());
+	}	
+}
+
+void GameScreen::DrawDropGhostToRenderText() {
+	sf::Sprite& sprite = mTileEntity->GetSprite();
+
+	// Save Initial Position
+	for (int i = 0; i < 4; i++) {
+		mTempTetromino[i] = mCurrentTetromino[i];;
+	}
+
+	// Move Down until colliding
+	do {
+		for (int i = 0; i < 4; i++) {
+			mCurrentTetromino[i].y += 1;
+		}
+	} while (CheckIfLegalMove());
+
+	// Move Up 1 to Last Legal Position
+	for (int i = 0; i < 4; i++) {
+		mCurrentTetromino[i].y -= 1;
+	}
+
+	// Render at Half Transparency
+	sf::Color col = sprite.getColor();
+	col.a = 150;
+	sprite.setColor(col);
+
+	// Current Piece now has Ghost piece properties
+	DrawCurrPieceToRenderTex();
+
+	// Restore Original Colour
+	col.a = 255;
+	sprite.setColor(col);
+
+	// Restore Actual Position
+	for (int i = 0; i < 4; i++) {
+		mCurrentTetromino[i] = mTempTetromino[i];
+	}
 }
 
 void GameScreen::Notify(const int& value) {
