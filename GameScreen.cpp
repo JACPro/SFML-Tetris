@@ -81,6 +81,8 @@ bool GameScreen::Load() {
 	mKeyHandlers[sf::Keyboard::S] = KeyHandler(0.0f, [&]() { mSoftDrop = true; });
 	mKeyHandlers[sf::Keyboard::S].AssignNewKeyAction(EKeyboardEvents::Held, [&]() { mSoftDrop = true; });
 
+	mKeyHandlers[sf::Keyboard::Space] = KeyHandler(0.0f, [&]() { HardDrop(); });
+
 
 	return true;
 }
@@ -132,20 +134,7 @@ EScreens GameScreen::Update(float deltaTime) {
 		}
 
 		if (!CheckIfLegalMove()) {
-			for (int i = 0; i < 4; i++) {
-				mGrid[mTempTetromino[i].y][mTempTetromino[i].x] = mColourNum;
-			}
-
-			// Tetromino placed - fetch new 
-			int n = GetNewTetrominoIndex();
-			mColourNum = mNextColourNum;
-			mNextColourNum = n;
-			for (int i = 0; i < 4; i++) {
-				mCurrentTetromino[i].x = mNextTetromino[i].x;
-				mCurrentTetromino[i].y = mNextTetromino[i].y;
-				mNextTetromino[i].x = Gameplay::TETROMINO_LAYOUTS[n][i] % 2;
-				mNextTetromino[i].y = Gameplay::TETROMINO_LAYOUTS[n][i] / 2;
-			}
+			PlaceTile();
 
 			if (!CheckIfLegalMove()) {
 				return EScreens::GameOver;
@@ -465,6 +454,43 @@ void GameScreen::DrawDropGhostToRenderText() {
 	for (int i = 0; i < 4; i++) {
 		mCurrentTetromino[i] = mTempTetromino[i];
 	}
+}
+
+void GameScreen::PlaceTile() {
+	// Set new placed tiles on grid
+	for (int i = 0; i < 4; i++) {
+		mGrid[mTempTetromino[i].y][mTempTetromino[i].x] = mColourNum;
+	}
+
+	// Fetch new Tetromino
+	int n = GetNewTetrominoIndex();
+	mColourNum = mNextColourNum;
+	mNextColourNum = n;
+	for (int i = 0; i < 4; i++) {
+		mCurrentTetromino[i].x = mNextTetromino[i].x;
+		mCurrentTetromino[i].y = mNextTetromino[i].y;
+		mNextTetromino[i].x = Gameplay::TETROMINO_LAYOUTS[n][i] % 2;
+		mNextTetromino[i].y = Gameplay::TETROMINO_LAYOUTS[n][i] / 2;
+	}
+
+	mTimer = 0;
+}
+
+void GameScreen::HardDrop() {
+	// Move Down until colliding
+	do {
+		for (int i = 0; i < 4; i++) {
+			mCurrentTetromino[i].y += 1;
+		}
+	} while (CheckIfLegalMove());
+
+	// Move Up 1 to Last Legal Position
+	for (int i = 0; i < 4; i++) {
+		mCurrentTetromino[i].y -= 1;
+	}
+
+	// Set timer value hugh
+	mTimer = 10.0f;
 }
 
 void GameScreen::Notify(const int& value) {

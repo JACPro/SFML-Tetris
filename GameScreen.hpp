@@ -90,6 +90,9 @@ private:
 	void DrawCurrPieceToRenderTex();
 	void DrawDropGhostToRenderText();
 
+	void PlaceTile();
+	void HardDrop();
+
 	bool CheckIfLegalMove();
 
 	int GetNewTetrominoIndex();
