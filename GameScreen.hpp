@@ -59,6 +59,8 @@ private:
 
 	bool mSoftDrop = false;
 
+	bool mIsPaused = false;
+
 	std::vector<int> mTetrominoIndices{ 0, 1, 2, 3, 4, 5, 6 };
 	int mNextTetrominoIndex = 7;
 
@@ -92,6 +94,8 @@ private:
 
 	void PlaceTile();
 	void HardDrop();
+
+	void Pause();
 
 	bool CheckIfLegalMove();
 

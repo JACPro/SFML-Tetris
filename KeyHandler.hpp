@@ -6,6 +6,8 @@
 
 class KeyHandler {
 public:
+	bool mHandleWhilePaused = false;
+
 	KeyHandler();
 	KeyHandler(float updateInterval, std::function<void()> onPressAction);
 	KeyHandler(float updateInterval, std::function<void()> onPressAction, std::function<void()> onReleaseAction);
@@ -19,7 +21,7 @@ public:
 private:
 	bool mIsPressed;
 	float mUpdateCountdownTimer;
-	float mUpdateInterval;
+	float mUpdateInterval;	
 	
 	std::function<void()> mOnPressAction;
 	std::function<void()> mOnHeldAction;

@@ -57,10 +57,6 @@ bool Window::HandleEvents() {
 			// Recreate render texture (cannot be resized)
 			mRenderTex.create(size.x, size.y);
 			mRenderTex.setView(view);
-		} else if (event.type == sf::Event::KeyPressed) {
-			if (event.key.code == sf::Keyboard::Escape) {
-				mWindow.close();
-			}
 		}
 	}
 

@@ -38,7 +38,8 @@ bool MainMenuScreen::Load() {
 
 	// Input 
 	mKeyHandlers[sf::Keyboard::Enter] = KeyHandler(0.1f, [&]() { mNextScreen = EScreens::Game; });
-	
+	mKeyHandlers[sf::Keyboard::Escape] = KeyHandler(0.1f, [&]() { mWindow.GetRenderWindow().close(); });
+
 	return true;
 }
 

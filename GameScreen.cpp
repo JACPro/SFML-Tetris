@@ -83,6 +83,8 @@ bool GameScreen::Load() {
 
 	mKeyHandlers[sf::Keyboard::Space] = KeyHandler(0.0f, [&]() { HardDrop(); });
 
+	mKeyHandlers[sf::Keyboard::Escape] = KeyHandler(0.1f, [&]() { Pause(); });
+	mKeyHandlers[sf::Keyboard::Escape].mHandleWhilePaused = true;
 
 	return true;
 }
@@ -93,29 +95,16 @@ EScreens GameScreen::Update(float deltaTime) {
 
 	// Update key handlers
 	for (auto& [key, handler] : mKeyHandlers) {
-		handler.Update(key, deltaTime);
-	}
-
-	// Move
-	for (int i = 0; i < 4; i++) {
-		mTempTetromino[i] = mCurrentTetromino[i];
-		mCurrentTetromino[i].x += mDiffX;
-	}
-
-	if (!CheckIfLegalMove()) {
-		for (int i = 0; i < 4; i++) {
-			mCurrentTetromino[i] = mTempTetromino[i];
+		if (!mIsPaused || handler.mHandleWhilePaused) {
+			handler.Update(key, deltaTime);
 		}
 	}
 
-	// Rotate
-	if (mRotate) {
-		sf::Vector2i point = mCurrentTetromino[1];
+	if (!mIsPaused) {
+		// Move
 		for (int i = 0; i < 4; i++) {
-			int x = mCurrentTetromino[i].y - point.y;
-			int y = mCurrentTetromino[i].x - point.x;
-			mCurrentTetromino[i].x = point.x - x;
-			mCurrentTetromino[i].y = point.y + y;
+			mTempTetromino[i] = mCurrentTetromino[i];
+			mCurrentTetromino[i].x += mDiffX;
 		}
 
 		if (!CheckIfLegalMove()) {
@@ -123,50 +112,67 @@ EScreens GameScreen::Update(float deltaTime) {
 				mCurrentTetromino[i] = mTempTetromino[i];
 			}
 		}
-	}
 
-	// Tick
-	float moveDelay = mSoftDrop ? 0.05f : mDelay;
-	if (mTimer > moveDelay) {
-		for (int i = 0; i < 4; i++) {
-			mTempTetromino[i] = mCurrentTetromino[i];
-			mCurrentTetromino[i].y += 1;
-		}
-
-		if (!CheckIfLegalMove()) {
-			PlaceTile();
+		// Rotate
+		if (mRotate) {
+			sf::Vector2i point = mCurrentTetromino[1];
+			for (int i = 0; i < 4; i++) {
+				int x = mCurrentTetromino[i].y - point.y;
+				int y = mCurrentTetromino[i].x - point.x;
+				mCurrentTetromino[i].x = point.x - x;
+				mCurrentTetromino[i].y = point.y + y;
+			}
 
 			if (!CheckIfLegalMove()) {
-				return EScreens::GameOver;
+				for (int i = 0; i < 4; i++) {
+					mCurrentTetromino[i] = mTempTetromino[i];
+				}
 			}
 		}
-		mTimer = 0;
-	}
 
-	// Check for lines
-	int k = ScreenLayout::GRID_ROWS - 1;
-	int clearedLines = 0;
-	for (int i = ScreenLayout::GRID_ROWS - 1; i > 0; i--) {
-		int count = 0;
-		for (int j = 0; j < ScreenLayout::GRID_COLS; j++) {
-			if (mGrid[i][j] != -1) {
-				count++;
+		// Tick
+		float moveDelay = mSoftDrop ? 0.05f : mDelay;
+		if (mTimer > moveDelay) {
+			for (int i = 0; i < 4; i++) {
+				mTempTetromino[i] = mCurrentTetromino[i];
+				mCurrentTetromino[i].y += 1;
 			}
-			mGrid[k][j] = mGrid[i][j];
-		}
-		if (count < ScreenLayout::GRID_COLS) {
-			k--;
-		} else {
-			clearedLines++;
-		}
-	}
-	if (clearedLines) {
-		OnLinesCleared.NotifyObservers(clearedLines);
-	}
 
-	mDiffX = 0;
-	mRotate = false;
-	mSoftDrop = false;
+			if (!CheckIfLegalMove()) {
+				PlaceTile();
+
+				if (!CheckIfLegalMove()) {
+					return EScreens::GameOver;
+				}
+			}
+			mTimer = 0;
+		}
+
+		// Check for lines
+		int k = ScreenLayout::GRID_ROWS - 1;
+		int clearedLines = 0;
+		for (int i = ScreenLayout::GRID_ROWS - 1; i > 0; i--) {
+			int count = 0;
+			for (int j = 0; j < ScreenLayout::GRID_COLS; j++) {
+				if (mGrid[i][j] != -1) {
+					count++;
+				}
+				mGrid[k][j] = mGrid[i][j];
+			}
+			if (count < ScreenLayout::GRID_COLS) {
+				k--;
+			} else {
+				clearedLines++;
+			}
+		}
+		if (clearedLines) {
+			OnLinesCleared.NotifyObservers(clearedLines);
+		}
+
+		mDiffX = 0;
+		mRotate = false;
+		mSoftDrop = false;
+	}
 
 	// Grid
 	for (int i = 0; i < ScreenLayout::GRID_ROWS; i++) {
@@ -491,6 +497,10 @@ void GameScreen::HardDrop() {
 
 	// Set timer value hugh
 	mTimer = 10.0f;
+}
+
+void GameScreen::Pause() {
+	mIsPaused = !mIsPaused;
 }
 
 void GameScreen::Notify(const int& value) {
