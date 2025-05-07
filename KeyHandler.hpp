@@ -17,11 +17,22 @@ public:
 	void Update(sf::Keyboard::Key key, float deltaTime);
 
 	void AssignNewKeyAction(EKeyboardEvents eventType, std::function<void()> action);
+	
+	/*
+	* @brief Set how long to wait between initial press event and first instance of repeat event
+	* @param delay - how long of a delay (in seconds) to wait after initial press before calling repeat event for first time
+	*/
+	void SetFirstHeldRepeatDelay(float delay);
 
 private:
 	bool mIsPressed;
+
+	// For firing repeat inputs when held
 	float mUpdateCountdownTimer;
 	float mUpdateInterval;	
+
+	// For different duration before first repeat when held
+	float mFirstUpdateInterval;
 	
 	std::function<void()> mOnPressAction;
 	std::function<void()> mOnHeldAction;

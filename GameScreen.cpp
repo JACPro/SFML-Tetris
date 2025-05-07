@@ -69,11 +69,13 @@ bool GameScreen::Load() {
 	}
 
 	// Input 
-	mKeyHandlers[sf::Keyboard::A] = KeyHandler(0.1f, [&]() { mDiffX = -1; });
+	mKeyHandlers[sf::Keyboard::A] = KeyHandler(0.0f, [&]() { mDiffX = -1; });
 	mKeyHandlers[sf::Keyboard::A].AssignNewKeyAction(EKeyboardEvents::Held, [&]() { mDiffX = -1; });
+	mKeyHandlers[sf::Keyboard::A].SetFirstHeldRepeatDelay(0.167f);
 
-	mKeyHandlers[sf::Keyboard::D] = KeyHandler(0.1f, [&]() { mDiffX = 1; });
+	mKeyHandlers[sf::Keyboard::D] = KeyHandler(0.0f, [&]() { mDiffX = 1; });
 	mKeyHandlers[sf::Keyboard::D].AssignNewKeyAction(EKeyboardEvents::Held, [&]() { mDiffX = 1; });
+	mKeyHandlers[sf::Keyboard::D].SetFirstHeldRepeatDelay(0.167f);
 
 	mKeyHandlers[sf::Keyboard::W] = KeyHandler(0.2f, [&]() { mRotate = true; });
 	mKeyHandlers[sf::Keyboard::W].AssignNewKeyAction(EKeyboardEvents::Held, [&]() { mRotate = true; });

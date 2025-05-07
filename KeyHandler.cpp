@@ -1,21 +1,24 @@
 #include "KeyHandler.hpp"
 
-KeyHandler::KeyHandler() : mIsPressed(false), mUpdateCountdownTimer(0.0f), mUpdateInterval(0.0f), mOnPressAction() {
+KeyHandler::KeyHandler() 
+	: mIsPressed(false), mUpdateCountdownTimer(0.0f), mUpdateInterval(0.0f), mFirstUpdateInterval(0.0f), 
+	mOnPressAction() {
 }
 
 KeyHandler::KeyHandler(float updateInterval, std::function<void()> onPressAction)
-	: mIsPressed(false), mUpdateCountdownTimer(0.0f), mUpdateInterval(updateInterval), mOnPressAction(onPressAction) {
+	: mIsPressed(false), mUpdateCountdownTimer(0.0f), mUpdateInterval(updateInterval), mFirstUpdateInterval(updateInterval),
+	mOnPressAction(onPressAction) {
 }
 
 KeyHandler::KeyHandler(float updateInterval, std::function<void()> onPressAction, std::function<void()> onReleaseAction)
-	: mIsPressed(false), mUpdateCountdownTimer(0.0f), mUpdateInterval(updateInterval), mOnPressAction(onPressAction), 
-	mOnReleaseAction(onReleaseAction) { 
+	: mIsPressed(false), mUpdateCountdownTimer(0.0f), mUpdateInterval(updateInterval), mFirstUpdateInterval(updateInterval), 
+	mOnPressAction(onPressAction), mOnReleaseAction(onReleaseAction) { 
 }
 
 KeyHandler::KeyHandler(float updateInterval, std::function<void()> onPressAction, std::function<void()> onReleaseAction, 
 	std::function<void()> onHeldAction)
-	: mIsPressed(false), mUpdateCountdownTimer(0.0f), mUpdateInterval(updateInterval), mOnPressAction(onPressAction), 
-	mOnReleaseAction(onReleaseAction), mOnHeldAction(onHeldAction) {
+	: mIsPressed(false), mUpdateCountdownTimer(0.0f), mUpdateInterval(updateInterval), mFirstUpdateInterval(updateInterval), 
+	mOnPressAction(onPressAction), mOnReleaseAction(onReleaseAction), mOnHeldAction(onHeldAction) {
 }
 
 void KeyHandler::Update(sf::Keyboard::Key key, float deltaTime) {
@@ -24,7 +27,7 @@ void KeyHandler::Update(sf::Keyboard::Key key, float deltaTime) {
 			if (mOnPressAction != nullptr) { 
 				ExecuteOnPressAction();
 			}
-			mUpdateCountdownTimer = mUpdateInterval;
+			mUpdateCountdownTimer = mFirstUpdateInterval;			
 			mIsPressed = true;
 		} else if ((mUpdateCountdownTimer -= deltaTime) < 0) { // repeat interval has elapsed
 			if (mOnHeldAction != nullptr) {
@@ -66,4 +69,8 @@ void KeyHandler::AssignNewKeyAction(EKeyboardEvents eventType, std::function<voi
 		mOnHeldAction = action;
 		break;
 	}
+}
+
+void KeyHandler::SetFirstHeldRepeatDelay(float delay) {
+	mFirstUpdateInterval = delay;
 }
