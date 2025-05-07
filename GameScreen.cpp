@@ -126,8 +126,30 @@ EScreens GameScreen::Update(float deltaTime) {
 			}
 
 			if (!CheckIfLegalMove()) {
-				for (int i = 0; i < 4; i++) {
-					mCurrentTetromino[i] = mTempTetromino[i];
+				if (mCurrentTetromino[0].x < 5) {
+					// against left wall	
+					int min = -1;
+					for (int i = 0; i < 4; i++) {
+						if (mCurrentTetromino[i].x < min) {
+							min = mCurrentTetromino[i].x;
+						}
+					}
+
+					for (int i = 0; i < 4; i++) {
+						mCurrentTetromino[i].x -= min; // move right by minimum necessary amount - leftmost x value must be 0
+					}
+				} else {
+					// against right wall
+					int max = 10;
+					for (int i = 0; i < 4; i++) {
+						if (mCurrentTetromino[i].x > max) {
+							max = mCurrentTetromino[i].x;
+						}
+					}
+
+					for (int i = 0; i < 4; i++) {
+						mCurrentTetromino[i].x -= (max - 9); // move left by minimum necessary amount - rightmost x value must be 9
+					}
 				}
 			}
 		}
