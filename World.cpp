@@ -26,6 +26,11 @@ bool World::Load() {
 
 
 void World::Update(float deltaTime) {
+	if (!mWindow.GetRenderWindow().hasFocus()) {
+		// do not Update when window not in focus
+		return;
+	}
+
 	EScreens nextScreen = mCurrentScreen->Update(deltaTime);
 
 	if (nextScreen != EScreens::None) {
