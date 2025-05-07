@@ -89,7 +89,9 @@ private:
 	void RenderCurrScoreBox();
 	void RenderCurrLevelBox();
 
+	void DrawGridTilesToRenderTex();
 	void DrawCurrPieceToRenderTex();
+	void DrawNextPieceToRenderTex();
 	void DrawDropGhostToRenderText();
 
 	void PlaceTile();

@@ -198,71 +198,16 @@ EScreens GameScreen::Update(float deltaTime) {
 		mSoftDrop = false;
 	}
 
-	// Grid
-	for (int i = 0; i < ScreenLayout::GRID_ROWS; i++) {
-		for (int j = 0; j < ScreenLayout::GRID_COLS; j++) {
-			if (mGrid[i][j] != -1) {
-				mTileEntity->GetSprite().setTextureRect(sf::IntRect(
-					mGrid[i][j] * ScreenLayout::TILE_WIDTH, 0,
-					ScreenLayout::TILE_WIDTH, ScreenLayout::TILE_WIDTH)
-				);
-				mTileEntity->GetSprite().setPosition(
-					static_cast<float>(j * ScreenLayout::TILE_WIDTH),
-					static_cast<float>(i * ScreenLayout::TILE_WIDTH)
-				);
-				mTileEntity->GetSprite().move(50, 100);
-				mTilesRenderTexture.draw(mTileEntity->GetSprite());
-			}
-		}
-	}
-
-	// Next Tetromino
-	// If no tile square is in first row or col, need offset to center
-	bool topRow = false, leftCol = false, bottomRow = false;
-	for (int i = 0; i < 4; i++) {
-		if (mNextTetromino[i].x == 0) {
-			leftCol = true; // there is a square in the left col
-		}
-		if (mNextTetromino[i].y == 0) {
-			topRow = true; // there is a square in the top row
-		}
-		if (mNextTetromino[i].y == 3) {
-			bottomRow = true; // there is a square in the bottom row
-		}
-	}
-
-	const sf::Sprite nextTileGridSprite = mNextTileGridEntity->GetSprite();
-	float nextTetrominoBoxHorPadding = nextTileGridSprite.getGlobalBounds().width - 2 * ScreenLayout::TILE_WIDTH;
-	nextTetrominoBoxHorPadding /= 2;
-
-	float xOffset = nextTileGridSprite.getPosition().x + nextTetrominoBoxHorPadding;
-	float yOffset = nextTileGridSprite.getPosition().y + ScreenLayout::UI_BOX_PADDING;
-	if (!leftCol) { // I shape
-		xOffset -= ScreenLayout::TILE_WIDTH / 2;
-	}
-	if (!topRow && bottomRow) { // No top row and not O shape = bottom 3 rows
-		yOffset -= ScreenLayout::TILE_WIDTH / 2;
-	}
-
-	for (int i = 0; i < 4; i++) {
-		mTileEntity->GetSprite().setTextureRect(sf::IntRect(
-			mNextColourNum * ScreenLayout::TILE_WIDTH, 0,
-			ScreenLayout::TILE_WIDTH, ScreenLayout::TILE_WIDTH)
-		);
-		mTileEntity->GetSprite().setPosition(
-			mNextTetromino[i].x * ScreenLayout::TILE_WIDTH + xOffset,
-			mNextTetromino[i].y * ScreenLayout::TILE_WIDTH + yOffset
-		);
-		mTilesRenderTexture.draw(mTileEntity->GetSprite());
-	}
-
-	DrawCurrPieceToRenderTex();
-	DrawDropGhostToRenderText();	
-
 	return mNextScreen;
 }
 
 void GameScreen::Render() {
+	DrawGridTilesToRenderTex();
+	DrawCurrPieceToRenderTex();
+	DrawNextPieceToRenderTex();
+	DrawDropGhostToRenderText();
+
+
 	RenderEntities();
 	RenderCurrScoreBox();
 	RenderCurrLevelBox();
@@ -430,6 +375,25 @@ void GameScreen::RenderCurrLevelBox() {
 	mWindow.GetRenderTex().draw(levelText);
 }
 
+void GameScreen::DrawGridTilesToRenderTex() {
+	for (int i = 0; i < ScreenLayout::GRID_ROWS; i++) {
+		for (int j = 0; j < ScreenLayout::GRID_COLS; j++) {
+			if (mGrid[i][j] != -1) {
+				mTileEntity->GetSprite().setTextureRect(sf::IntRect(
+					mGrid[i][j] * ScreenLayout::TILE_WIDTH, 0,
+					ScreenLayout::TILE_WIDTH, ScreenLayout::TILE_WIDTH)
+				);
+				mTileEntity->GetSprite().setPosition(
+					static_cast<float>(j * ScreenLayout::TILE_WIDTH),
+					static_cast<float>(i * ScreenLayout::TILE_WIDTH)
+				);
+				mTileEntity->GetSprite().move(50, 100);
+				mTilesRenderTexture.draw(mTileEntity->GetSprite());
+			}
+		}
+	}
+}
+
 void GameScreen::DrawCurrPieceToRenderTex() {
 	sf::Sprite& sprite = mTileEntity->GetSprite();
 
@@ -446,6 +410,48 @@ void GameScreen::DrawCurrPieceToRenderTex() {
 
 		mTilesRenderTexture.draw(mTileEntity->GetSprite());
 	}	
+}
+
+void GameScreen::DrawNextPieceToRenderTex() {
+	// If no tile square is in first row or col, need offset to center
+	bool topRow = false, leftCol = false, bottomRow = false;
+
+	for (int i = 0; i < 4; i++) {
+		if (mNextTetromino[i].x == 0) {
+			leftCol = true; // there is a square in the left col
+		}
+		if (mNextTetromino[i].y == 0) {
+			topRow = true; // there is a square in the top row
+		}
+		if (mNextTetromino[i].y == 3) {
+			bottomRow = true; // there is a square in the bottom row
+		}
+	}
+
+	const sf::Sprite nextTileGridSprite = mNextTileGridEntity->GetSprite();
+	float nextTetrominoBoxHorPadding = nextTileGridSprite.getGlobalBounds().width - 2 * ScreenLayout::TILE_WIDTH;
+	nextTetrominoBoxHorPadding /= 2;
+
+	float xOffset = nextTileGridSprite.getPosition().x + nextTetrominoBoxHorPadding;
+	float yOffset = nextTileGridSprite.getPosition().y + ScreenLayout::UI_BOX_PADDING;
+	if (!leftCol) { // I shape
+		xOffset -= ScreenLayout::TILE_WIDTH / 2;
+	}
+	if (!topRow && bottomRow) { // No top row and not O shape = bottom 3 rows
+		yOffset -= ScreenLayout::TILE_WIDTH / 2;
+	}
+
+	for (int i = 0; i < 4; i++) {
+		mTileEntity->GetSprite().setTextureRect(sf::IntRect(
+			mNextColourNum * ScreenLayout::TILE_WIDTH, 0,
+			ScreenLayout::TILE_WIDTH, ScreenLayout::TILE_WIDTH)
+		);
+		mTileEntity->GetSprite().setPosition(
+			mNextTetromino[i].x * ScreenLayout::TILE_WIDTH + xOffset,
+			mNextTetromino[i].y * ScreenLayout::TILE_WIDTH + yOffset
+		);
+		mTilesRenderTexture.draw(mTileEntity->GetSprite());
+	}
 }
 
 void GameScreen::DrawDropGhostToRenderText() {
