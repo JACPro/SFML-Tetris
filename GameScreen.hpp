@@ -39,7 +39,7 @@ private:
 	World& mWorld;
 
 	std::vector<Entity*> mEntities;
-
+	
 	// -- GAMEPLAY FIELDS --
 	int mGrid[ScreenLayout::GRID_ROWS][ScreenLayout::GRID_COLS];
 	sf::Vector2i mCurrentTetromino[4], mTempTetromino[4], mNextTetromino[4];
@@ -95,6 +95,8 @@ private:
 	void DrawDropGhostToRenderText();
 
 	void PlaceTile();
+	void FetchNewNextTetromino();
+	void SetNextTetrominoAsCurrent();
 	void HardDrop();
 
 	void Pause();

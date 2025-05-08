@@ -52,21 +52,15 @@ bool GameScreen::Load() {
 		}
 	}
 
-	// Generate random first tetromino
-	int n = GetNewTetrominoIndex();
-	mColourNum = n;
-	for (int i = 0; i < 4; i++) {
-		mCurrentTetromino[i].x = Gameplay::TETROMINO_LAYOUTS[n][i] % 2;
-		mCurrentTetromino[i].y = Gameplay::TETROMINO_LAYOUTS[n][i] / 2;
-	}
+	// Initialize Current and Next Tetrominos
 
-	// Generate random next tetromino
-	n = GetNewTetrominoIndex();
-	mNextColourNum = n;
-	for (int i = 0; i < 4; i++) {
-		mNextTetromino[i].x = Gameplay::TETROMINO_LAYOUTS[n][i] % 2;
-		mNextTetromino[i].y = Gameplay::TETROMINO_LAYOUTS[n][i] / 2;
-	}
+	// Create first played Tetromino - Current Tetromino must always be copied from "Next", 
+	// so create a temp "Next" Tetromino first from which to copy
+	FetchNewNextTetromino(); 
+	SetNextTetrominoAsCurrent();
+
+	// Create actual first "Next" Tetromino that the player sees
+	FetchNewNextTetromino(); 
 
 	// Input 
 	mKeyHandlers[sf::Keyboard::A] = KeyHandler(0.0f, [&]() { mDiffX = -1; });
@@ -498,18 +492,29 @@ void GameScreen::PlaceTile() {
 		mGrid[mTempTetromino[i].y][mTempTetromino[i].x] = mColourNum;
 	}
 
-	// Fetch new Tetromino
+	SetNextTetrominoAsCurrent();
+	FetchNewNextTetromino();
+
+	mTimer = 0;
+}
+
+void GameScreen::FetchNewNextTetromino() {
 	int n = GetNewTetrominoIndex();
-	mColourNum = mNextColourNum;
 	mNextColourNum = n;
-	for (int i = 0; i < 4; i++) {
-		mCurrentTetromino[i].x = mNextTetromino[i].x;
-		mCurrentTetromino[i].y = mNextTetromino[i].y;
+
+	for (int i = 0; i < 4; i++) {	
 		mNextTetromino[i].x = Gameplay::TETROMINO_LAYOUTS[n][i] % 2;
 		mNextTetromino[i].y = Gameplay::TETROMINO_LAYOUTS[n][i] / 2;
 	}
+}
 
-	mTimer = 0;
+void GameScreen::SetNextTetrominoAsCurrent() {
+	mColourNum = mNextColourNum;
+
+	for (int i = 0; i < 4; i++) {
+		mCurrentTetromino[i].x = mNextTetromino[i].x + 4; // add 4 to create piece in centre of grid instead of left side
+		mCurrentTetromino[i].y = mNextTetromino[i].y;
+	}
 }
 
 void GameScreen::HardDrop() {
