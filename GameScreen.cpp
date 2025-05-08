@@ -121,8 +121,8 @@ EScreens GameScreen::Update(float deltaTime) {
 
 			if (!CheckIfLegalMove()) {
 				if (mCurrentTetromino[0].x < 5) {
-					// against left wall	
-					int min = -1;
+					// on left half of screen - check if rotated over the left bound
+					int min = 0;
 					for (int i = 0; i < 4; i++) {
 						if (mCurrentTetromino[i].x < min) {
 							min = mCurrentTetromino[i].x;
@@ -133,8 +133,8 @@ EScreens GameScreen::Update(float deltaTime) {
 						mCurrentTetromino[i].x -= min; // move right by minimum necessary amount - leftmost x value must be 0
 					}
 				} else {
-					// against right wall
-					int max = 10;
+					// on right half of screen - check if rotated over the right bound
+					int max = 9;
 					for (int i = 0; i < 4; i++) {
 						if (mCurrentTetromino[i].x > max) {
 							max = mCurrentTetromino[i].x;
@@ -143,6 +143,14 @@ EScreens GameScreen::Update(float deltaTime) {
 
 					for (int i = 0; i < 4; i++) {
 						mCurrentTetromino[i].x -= (max - 9); // move left by minimum necessary amount - rightmost x value must be 9
+					}
+				}
+
+				// if, after attempting to kick away from a wall with which we would have overlapped, we are still not in a legal position
+				// (i.e. overlapping another tile in the grid), then undo this rotation (prevent the rotation)
+				if (!CheckIfLegalMove()) {
+					for (int i = 0; i < 4; i++) {
+						mCurrentTetromino[i] = mTempTetromino[i];
 					}
 				}
 			}
